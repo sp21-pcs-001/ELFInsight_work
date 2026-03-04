@@ -1,0 +1,317 @@
+ 818  pythn3 GenerationOpcode-1-12-2023.py 
+  819  pythn GenerationOpcode-1-12-2023.py 
+  820  python GenerationOpcode-1-12-2023.py 
+  821  ls
+  822  ls -l Mau\ mal/
+  823  ls
+  824  mv Mau\ mal/libuuid.so.1.3.asm .
+  825  rm Mau\ mal/
+  826  mkdir mal
+  827  mv libuuid.so.1.3.asm mal
+  828  python GenerationOpcode-1-12-2023.py 
+  829  ls
+  830  python GenerationOpcode-1-12-2023.py 
+  831  cd mal/
+  832  mkdir ASM_mips_Opcode
+  833  cd ..
+  834  python GenerationOpcode-1-12-2023.py 
+  835  cd -
+  836  cd ASM_mips_Opcode/
+  837  ls
+  838  vim libuuid.so.1.3.asm 
+  839  python GenerationOpcode-1-12-2023.py 
+  840  cd ..
+  841  python GenerationOpcode-1-12-2023.py 
+  842  md5sum  mal/6836eef034d1ca94eea67bc54b806aba.asm 
+  843  md5sum  mal/libuuid.so.1.3.asmMANUAL 
+  844  vim mal/6836eef034d1ca94eea67bc54b806aba.asm 
+  845  vim  mal/libuuid.so.1.3.asmMANUAL 
+  846  ls
+  847  md5sum mal/ASM_mips_Opcode/6836eef034d1ca94eea67bc54b806aba.asm 
+  848  md5sum mal/ASM_mips_Opcode/libuuid.so.1.3.asm 
+  849  md5sum mal/ASM_mips_Opcode/6836eef034d1ca94eea67bc54b806aba.asm 
+  850  pwd
+  851  history
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# 
+
+eged
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/haveged"
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# /usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/haveged"
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# python3 calling_ida_R_elf.py 
+haveged
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/haveged"
+------------------++++++++++++-
+Full path is: <DirEntry 'haveged'> and just the name is: haveged
+1
+-----------------------
+
+ Raw features of 1 file are extracted.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# /usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/haveged"
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# python3 calling_ida_R_elf.py 
+haveged
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/haveged"
+------------------++++++++++++-
+Full path is: <DirEntry 'haveged'> and just the name is: haveged
+1
+-----------------------
+
+ Raw features of 1 file are extracted.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# python3 calling_ida_R_elf.py 
+libuuid.so.1.3.0
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/libuuid.so.1.3.0"
+------------------++++++++++++-
+Full path is: <DirEntry 'libuuid.so.1.3.0'> and just the name is: libuuid.so.1.3.0
+1
+-----------------------
+
+ Raw features of 1 file are extracted.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# cd ..
+root@firmfuzz-vm:/home/firmfuzz/Downloads# chmod -R 777 *
+root@firmfuzz-vm:/home/firmfuzz/Downloads# cd -
+/home/firmfuzz/Downloads/idascr
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# 
+
+
+----
+1march2026
+
+
+ Raw features of 139 file are extracted.
+netcfg
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/netcfg"
+------------------++++++++++++-
+Full path is: <DirEntry 'netcfg'> and just the name is: netcfg
+1
+-----------------------
+
+ Raw features of 140 file are extracted.
+bfdtest1
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/bfdtest1"
+------------------++++++++++++-
+Full path is: <DirEntry 'bfdtest1'> and just the name is: bfdtest1
+1
+-----------------------
+
+ Raw features of 141 file are extracted.
+141 files scanned successfully.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# python3 calling_ida_R_elf.py 
+
+
+
+
+---------------------------
+opcode generatin 
+  818  pythn3 GenerationOpcode-1-12-2023.py 
+  819  pythn GenerationOpcode-1-12-2023.py 
+  820  python GenerationOpcode-1-12-2023.py 
+  821  ls
+  822  ls -l Mau\ mal/
+  823  ls
+  824  mv Mau\ mal/libuuid.so.1.3.asm .
+  825  rm Mau\ mal/
+  826  mkdir mal
+  827  mv libuuid.so.1.3.asm mal
+  828  python GenerationOpcode-1-12-2023.py 
+  829  ls
+  830  python GenerationOpcode-1-12-2023.py 
+  831  cd mal/
+  832  mkdir ASM_mips_Opcode
+  833  cd ..
+  834  python GenerationOpcode-1-12-2023.py 
+  835  cd -
+  836  cd ASM_mips_Opcode/
+  837  ls
+  838  vim libuuid.so.1.3.asm 
+  839  python GenerationOpcode-1-12-2023.py 
+  840  cd ..
+  841  python GenerationOpcode-1-12-2023.py 
+  842  md5sum  mal/6836eef034d1ca94eea67bc54b806aba.asm 
+  843  md5sum  mal/libuuid.so.1.3.asmMANUAL 
+  844  vim mal/6836eef034d1ca94eea67bc54b806aba.asm 
+  845  vim  mal/libuuid.so.1.3.asmMANUAL 
+  846  ls
+  847  md5sum mal/ASM_mips_Opcode/6836eef034d1ca94eea67bc54b806aba.asm 
+  848  md5sum mal/ASM_mips_Opcode/libuuid.so.1.3.asm 
+  849  md5sum mal/ASM_mips_Opcode/6836eef034d1ca94eea67bc54b806aba.asm 
+  850  pwd
+  851  history
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# 
+-------------------------------
+1march2026
+
+pcode-1-12-2023.py   intel_opcode_list_5-2023.txt   mal  'Mau mal'   mips_opcode_list_5-2023.txt   powerpc_opcode_list.txt
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# vim GenerationOpcode-1-12-2023
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# vim GenerationOpcode-1-12-2023.py 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# cp GenerationOpcode-1-12-2023.py GenerationOpcode-1-12-2023.py_before_on_benign_file 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# vim GenerationOpcode-1-12-2023.py 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# vim GenerationOpcode-1-12-2023.py 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# python GenerationOpcode-1-12-2023.py 
+
+
+
+
+
+
+
+
+
+
+n/Opcode Extraction/benign_asm/e16784a8a48deff668e7681adbc86efc.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/e4589420e961bfd9d00b8e761f31c6bb.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/6836eef034d1ca94eea67bc54b806aba.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/e8d983b962ee3364aad7d58bd2e22a24.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/5166e3921b2c4a38611fee015d211ed3.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/307fbdf8b633e4246bcb12cea2d04ed3.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/a708ed5df594b589b6eda8324c1469f0.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/bed7b9193957d4bb795e1e1560363aec.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/84b5933ffe799aa3aa7225e2da6d5eb1.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/a4b22e954ff6ae931527452a1a78fdab.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/74737743de2cf0e54054d193df69945a.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/79dcc63734466c5204b1d0d60baf2d32.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/07539481e5074a85e91729b242fa5fe0.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/ea8f8c2d059d67d000007151629373f0.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/a19832af26c80521383c2c3372486fad.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/5f5a37e543eefe1fbcca63a17647e68d.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/fdd725e961bef2b1057841a25f02e4b1.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/0cf6b573c385a874fba4464a0a948b2f.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/c3505163b9b9d2454a37f155503348aa.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/db0aded4127c0cba0efeb434f723b457.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/7229f102db1ea027019769dc4e5fba23.asm
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# 
+
+
+b830efac0ef3b360133c8e373b47ac4)
+[  OK  ] Found ASM for transmission-daemon (274ae429a43240639e06085e2fb10eca)
+[  OK  ] Found ASM for trimtemplates (626ca83831a44f5ea3da4ef166693385)
+[  OK  ] Found ASM for udevadm (e16784a8a48deff668e7681adbc86efc)
+[  OK  ] Found ASM for udpkg (7aa24a6d5222fbf520b6de6c4d76b675)
+[  OK  ] Found ASM for wesside-ng (018a31569d18ecd5d47a2e625675a952)
+[  OK  ] Found ASM for wget (c04298d483d983b08d0f6224b295da3f)
+[  OK  ] Found ASM for wpaclean (07539481e5074a85e91729b242fa5fe0)
+[  OK  ] Found ASM for wpa_supplicant (3205715385fb8855d25dc8e014aa2de5)
+[  OK  ] Found ASM for xtables-multi (1c77cc24f465b6f8bb1630f33d19033f)
+-----------------------------------------------
+Check complete.
+root@firmfuzz-vm:/home/firmfuzz/Documents# ./compare1.sh 
+
+-------------------------------
+
+28  cd caimp/extracted
+ 1029  ls
+ 1030  rm -rf *.id*
+ 1031  rm -rf *.til
+ 1032  rm -rf *.nam
+ 1033  ls -l
+ 1034  rm *.exe.txt
+ 1035  ls -lh
+ 1036  mv *.asmplus ../ASM_EXTRACTED_MIPS_2/
+ 1037  mv *.asm ../ASM_EXTRACTED_MIPS_2/
+ 1038  history
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/extracted# 
+----------------------------
+  OK  ] Found ASM for trimtemplates (626ca83831a44f5ea3da4ef166693385)
+[  OK  ] Found ASM for udevadm (e16784a8a48deff668e7681adbc86efc)
+[  OK  ] Found ASM for udpkg (7aa24a6d5222fbf520b6de6c4d76b675)
+[  OK  ] Found ASM for wesside-ng (018a31569d18ecd5d47a2e625675a952)
+[  OK  ] Found ASM for wget (c04298d483d983b08d0f6224b295da3f)
+[  OK  ] Found ASM for wpaclean (07539481e5074a85e91729b242fa5fe0)
+[  OK  ] Found ASM for wpa_supplicant (3205715385fb8855d25dc8e014aa2de5)
+[  OK  ] Found ASM for xtables-multi (1c77cc24f465b6f8bb1630f33d19033f)
+-----------------------------------------------
+Check complete.
+root@firmfuzz-vm:/home/firmfuzz/Documents# ./compare1.sh 
+
+----------------------------------------------
+
+ Raw features of 50 file are extracted.
+bmake
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/bmake"
+------------------++++++++++++-
+Full path is: <DirEntry 'bmake'> and just the name is: bmake
+1
+-----------------------
+
+ Raw features of 51 file are extracted.
+h8300-hitachi-coff-objcopy
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/h8300-hitachi-coff-objcopy"
+------------------++++++++++++-
+Full path is: <DirEntry 'h8300-hitachi-coff-objcopy'> and just the name is: h8300-hitachi-coff-objcopy
+1
+-----------------------
+
+ Raw features of 52 file are extracted.
+52 files scanned successfully.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# python3 calling_ida_R_elf.py 
+
+------------------------------------
+2march2026
+
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/5f5a37e543eefe1fbcca63a17647e68d.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/fdd725e961bef2b1057841a25f02e4b1.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/0cf6b573c385a874fba4464a0a948b2f.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/c3505163b9b9d2454a37f155503348aa.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/db0aded4127c0cba0efeb434f723b457.asm
+/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/benign_asm/7229f102db1ea027019769dc4e5fba23.asm
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# python GenerationOpcode-1-12-2023.py 
+
+----------------------------
+
+\
+
+4march2026
+----
+got new binaries. lets work on the extraction work on it. 
+
+
+irmfuzz-vm:/home/firmfuzz/Downloads/idascr# python3 calling_ida_R_elf.py 
+411toppm
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm_new1.py" "/home/firmfuzz/Downloads/caimp/extracted_4march2026/411toppm"
+------------------++++++++++++-
+
+Full path is: <DirEntry '411toppm'> and just the name is: 411toppm
+1
+-----------------------
+
+ Raw features of 1 file are extracted.
+1 files scanned successfully.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# python3 calling_ida_R_elf.py 
+vim.basic
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm_new1.py" "/home/firmfuzz/Downloads/caimp/extracted_4march2026/vim.basic"
+------------------++++++++++++-
+Full path is: <DirEntry 'vim.basic'> and just the name is: vim.basic
+
+Runnign on the 1763 new binaries collected from mips machine. 
+changed the code as well 
+00000000000000000000000000000000
+
+
+Raw features of 1761 file are extracted.
+genhash
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm_new1.py" "/home/firmfuzz/Downloads/caimp/extracted_4march2026/genhash"
+------------------++++++++++++-
+Full path is: <DirEntry 'genhash'> and just the name is: genhash
+1
+-----------------------
+
+ Raw features of 1762 file are extracted.
+zeisstopnm
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm_new1.py" "/home/firmfuzz/Downloads/caimp/extracted_4march2026/zeisstopnm"
+------------------++++++++++++-
+Full path is: <DirEntry 'zeisstopnm'> and just the name is: zeisstopnm
+1
+-----------------------
+
+ Raw features of 1763 file are extracted.
+1763 files scanned successfully.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# 
+
+
+
+

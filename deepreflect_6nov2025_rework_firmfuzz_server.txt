@@ -1,0 +1,622 @@
+python3 split.py /home/deepreflect/Desktop/dataset_npy/ ../../train.txt ../../test.txt
+11oct2025
+python3 split.py /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/ ../../train.txt ../../test.txt
+/home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/
+[]
++-------+-------+-------+------+
+| Label | Total | Train | Test |
++-------+-------+-------+------+
++-------+-------+-------+------+
+Number of samples: 0
+Number of families: 0
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect/autoencoder# python3 split.py /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/ ../../train.txt ../../test.txt
+/home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/
+['benign']
+/home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign
+[]
++--------+-------+-------+------+
+| Label  | Total | Train | Test |
++--------+-------+-------+------+
+| benign | 28743 | 22995 | 5748 |
++--------+-------+-------+------+
+Number of samples: 28743
+Number of families: 1
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect/autoencoder# 
+
+python3 split.py /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/ ../train.txt ../test.txt
+/home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/
+['benign']
+/home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign
+[]
++--------+-------+-------+------+
+| Label  | Total | Train | Test |
++--------+-------+-------+------+
+| benign | 28743 | 22995 | 5748 |
++--------+-------+-------+------+
+Number of samples: 28743
+Number of families: 1
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect/autoencoder# ls -l ../train.txt 
+-rwxrwxrwx 1 root root 3748185 اکتوبر 11 16:08 ../train.txt
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect/autoencoder# 
+
+
+for fn in 'train.txt' 'test.txt'; do shuf $fn > tmp.txt; mv tmp.txt $fn; done
+
+python3 feature_check.py ../../train.txt
+
+ python3 feature_check.py ../train.txt
+Adding : 22995
+../train.txt: [6.14908099e+14 1.25956177e+08 6.74729575e+03 4.51093470e+07
+ 1.73891100e+07 3.72300500e+06 9.60135350e+07 2.12529860e+07
+ 1.31556300e+06 1.97190000e+05 4.46697000e+05 1.32050000e+04
+ 8.48140000e+04 1.55786000e+05 1.08194000e+05 1.68600000e+03
+ 3.46140000e+04 6.15570000e+04 6.10680000e+04]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect/autoencoder# 
+python3 feature_check.py ../test.txt
+Adding : 5748
+
+../test.txt: [1.32164361e+14 3.13897210e+07 1.47684424e+03 1.65393260e+07
+ 4.22089000e+06 9.28228000e+05 2.38019550e+07 5.17806900e+06
+ 5.48910000e+05 4.79200000e+04 1.08899000e+05 2.92800000e+03
+ 2.09370000e+04 3.85600000e+04 2.54280000e+04 5.47000000e+02
+ 8.94000000e+03 1.49070000e+04 1.50280000e+04]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect/autoencoder#
+
+
+
+python3 normalize.py --train ../train.txt --test ../test.txt   --output normalize_dr.npy
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect/autoencoder# python3 normalize.py --train ../train.txt --test ../test.txt   --output normalize_dr.npy
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_25e398287fb34fac29faa6553c7fa3435f2bd5ffbab153762f067a2faca002bd.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_191523eba40cb74d6394f5ad0fad0fade305019d7737f71f056c51ea68c6119a.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_0672b7a886f34edffbd5edc9346e02c20ca240eaa3c33eda51e1190414e5a41e.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_57fa25a8f1a46525ecb26fafec34f880ae041bb42ffaedacfd4e84aa5c0f3cfb.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_1ef03c4afe6479c48ec1a072d6f3b0aa456e24d2da43404264994d113194ee22.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_3e1cfee5b36bd07496d5e6e374036babe922a1d3b5cfc32556998eb2ee05157c.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_80cfd361f85edf0627466ff88d86ece5a22d2db479d000bd81e5884c0220df53.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_b32dcb60cc07abd901e54ab4ec5a2f6cc65e588e34d12239682601cbf9ce0399.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_0ddfd5f4f49074bcc187aa9da4536e2c9e45dcd512a943ce0537a33a807c6437.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_273f60b14d3c423f4e198e8cae099f8dd3703d939251e549a9d6484549da5d5a.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_10f7fe23b4e2baf5dd591de566a17cd088814b7fd3ae6add774d5b97f52408ac.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_67e02e1a74ec2b05cc20154d2ce4bd8df255c4b68c0ebd823e7681d1d475d96f.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_285e0f632109439f9832e02e1f127b66481e2ed392ff93dcf9317504ddbc52ea.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_3c74cc0232ac216a6f80d50ab1c860c2e58cbfceb7a7d243fe26aa36546d7a2c.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_3dcab08002051fb0a382fd0d780897ec28ce4afc0b801c0908df648d375cfc41.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_490b4b5a457c40eb23fabac141687a3ffcc0e63f3c8bb8637241decfa950e329.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_30b7e6e63dee080fc0d1e1baf00df8105f3b60d33b3c2c1b24e9a1e23ef4fddd.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_5a62d0177f71fd1e23780ff133984cf33e835e96dcc9110c948dfcdc2507a051.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_098f87f7055172aae111d06d41e2a28d06f090972fb3a5705a42adef3c4c4194.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_444cfc504232cbe2bf9a9739b4177dc122a8a9a5706ac91c4e5c2ebf559309cc.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_7d894abbfbba623586690f3847af50842acfae8b4bfcca0bb2872e7742d19e5d.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_1608e3660dff0a6451996be040fdc8831a009b6d463896a285ac110aedfd8fda.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_0949a4edfb7c4891a6ae83e5b86c040ede812a13530d91093017bb22461e739b.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_ce1eb4fd7d9a43fac2790bdf237a13aa75e6a49d150916a51da376a5791056f0.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_16735ea047b7c2bac8fb5bfbda7f52b1eec53179870ea820a56e756c37788bcf.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_42854e14e3ae6cfc234134d44a06d710bdadb0353a23b1ba1a694b211ea5b5c1.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_5b0b348a3f6e46e4e4e3279c403ba77a6eb66670724142379550f60b1d6b8760.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_3afb546a021e638864926199df5f0221c9ce0a8b9230232c4c26bfef1ee390d4.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_5f9ab6ec8a6b8aeddeef73c267694fc3efacfd877175639332201376d0fada81.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_2ac4183f068fc0eb997779b10bdf43329f71c662b989b40975fd83333f8f6199.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_4b6e320cf79c1d823406b788d915ca98f54bdf176ffc84eb032c781d641d3f87.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_32a3d325ad41758b427ada10ca6f1266f092f354590f6334c49675d0a3c93017.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_64fcf0557f5393c6ccd6e62c961b39a62e7e7e373c2eb414c74ff8eb65b64906.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_2a6aff227249f8a7ae2f914e514293015629d6eb6624e7d2989e93d5666b1257.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_64edce68ca03b24fcd48bf88bbea54567758ad7bd2c6510afb1694e92c1389da.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_160599296c168eb625baea9d7f8e797bbf1c8ef8c821c5e86fdfb691eaec3dd2.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_207abfacfd6517d8324ed79d28d52b597d24f0f1c5c6abbb83a6ccb086f68a63.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_ee61c2de339680770e290429bb3274a12274bd9e4778333398892519cd4c05d8.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_30bd70605a21abaa1bf769207d51b11671562a92dca746027a3186333392cde7.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_0dc64106726b371f302b19bf026edf9ac9ac7faa6b72a4e093511c8796665c99.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_6697ea6fb5804796c714fdf7bd59c01a46756e75d84fb6cc6171030c69e460df.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_61d9c71733e4e01406719bab35ab4098b3c1ab1c552aa759f3e3fd1073dcbcf4.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_18d6f91d6b59a5711129487fe4f498fe20a57b570df46b0b690f9c235fe93a6e.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_6c18f741cf0543277819e11f29d0b6638b4a6ccf2a8b2ad182c17700ed6ab97a.npy has no data.
+Error. Sample /home/firmfuzz/Desktop/aaaaaa/feature/benign_unipacker_bndb_acfg_plus_feature/benign/unpacked_697a78de3cea8d9b6a5993d89537523eca32158ff229f2cf407dd017b05fe009.npy has no data.
+Normalizing samples: 28743 / 28743
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect/autoencoder# python3 normalize.py --train ../train.txt --test ../test.txt   --output normalize_dr.npy^C
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect/autoencoder#
+
+
+
+python3 autoencoder.py --train ../train.txt  --test ../test.txt --normalize normalize_dr.npy --model dr_dr.h5 > autoencoder_stdout.txt 2> autoencoder_stderr.txt
+
+----
+install tensor flow and scikit program as well
+now changes in the autoencoder.py to fix the .lr related lines. 
+-----
+------
+12Oct2025, now checking for ELF deepreflect
+
+------------------------------------------------------------------------
+
+12Oct2025
+-----
+
+##create directory benign and store npy in it.
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf/autoencoder# python3 split.py /home/firmfuzz/Desktop/elf_benign_npy/ train.txt test.txt
++--------+-------+-------+------+
+| Label  | Total | Train | Test |
++--------+-------+-------+------+
+| benign |  569  |  456  | 113  |
++--------+-------+-------+------+
+Number of samples: 569
+Number of families: 1
+
+python3 split.py /home/firmfuzz/Desktop/elf_benign_npy/ ../train.txt ../test.txt
+
+
+
+
+--------------------------------------
+for fn in 'train.txt' 'test.txt'; do shuf $fn > tmp.txt; mv tmp.txt $fn; done
+
+python3 feature_check.py train.txt
+Adding : 456
+train.txt: [2.74441323e+11 1.46533100e+06 4.73682255e+04 8.25520000e+05
+ 7.75506000e+05 4.39069000e+05 2.58972000e+05 1.08198600e+06
+ 1.52606100e+06 1.93000000e+02 2.76240000e+04 8.08800000e+03
+ 2.24390000e+04 8.30000000e+01 2.76240000e+04 2.16280000e+04
+ 7.44900000e+03 2.12700000e+03 4.26800000e+03 8.32800000e+03
+ 4.00000000e+01]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf/autoencoder# python3 feature_check.py test.txt 
+Adding : 113
+test.txt: [8.43731068e+10 3.85661000e+05 1.28179903e+04 2.51128000e+05
+ 2.00454000e+05 1.18210000e+05 6.70380000e+04 3.00829000e+05
+ 4.20579000e+05 1.32000000e+02 6.15400000e+03 1.13700000e+03
+ 5.18200000e+03 2.20000000e+01 6.15400000e+03 5.11300000e+03
+ 1.39800000e+03 1.74000000e+02 1.50000000e+01 4.59400000e+03
+ 0.00000000e+00]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf/autoencoder# 
+python3 normalize.py --train train.txt --test test.txt   --output normalize_elf_12oct2025.npy
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf/autoencoder# python3 normalize.py --train train.txt --test test.txt   --output normalize_elf_12oct2025.npy
+Normalizing samples: 569 / 569
+
+
+time python3 autoencoder.py --train train.txt  --test test.txt --normalize normalize_elf_12oct2025.npy --model dr_elf_12oct2025.h5 >
+autoencoder_stdout.txt 2> autoencoder_stderr.txt
+
+
+time python3 autoencoder.py --train ../../train.txt  --test ../../test.txt --normalize ../../normalize_elf.npy --model dr_elf.h5 > autoencoder_stdout.txt 2> autoencoder_stderr.txt
+
+
+
+------------------
+16oct2025,
+after losing all work on elf binaries .
+----now extracting vex ir based feature set
+pip install angr
+-----
+18oct2025, raw feature extraction on old binaries is in progess.
+
+now running on the other binaires
+
+root@firmfuzz-vm:/home/firmfuzz/Documents/new_scripts# python raw_feature_extraction_new.py  --input-dir /home/firmfuzz/Documents/elf_benign/ --output-dir /home/firmfuzz/Documents/elf_benign_new_npy
+python raw_feature_extraction_new.py  --input-dir /home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware --output-dir /home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware_raw
+
+/home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware
+/home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware_raw
+
+root@firmfuzz-vm:/home/firmfuzz/Documents/new_scripts# python raw_feature_extraction_new.py  --input-dir /home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware --output-dir /home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware_raw
+
+------------------------------------
+**********************
+18oct2025,
+datset of 520 approx binaries using vex-IR new scripts and downloaded from internet and considered only ARM binaries.
+
+18Oct2025, now checking for ELF/VEX deepreflect
+
+------------------------------------------------------------------------
+
+12Oct2025
+-----
+
+##create directory benign and store npy in it.
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf/autoencoder# python3 split.py /home/firmfuzz/Desktop/elf_benign_npy/ train.txt test.txt
++--------+-------+-------+------+
+| Label  | Total | Train | Test |
++--------+-------+-------+------+
+| benign |  569  |  456  | 113  |
++--------+-------+-------+------+
+Number of samples: 569
+Number of families: 1
+rmfuzz/Desktop/elf_benign_vex/features_npy/ARM__32__lsb__unix-system-v__arm-linux-gnueabihf-gcc-5.4.0__O1__no-obf__unstripped__coreutils-8.30__mknod-raw.npy']}
++--------------+-------+-------+------+
+|    Label     | Total | Train | Test |
++--------------+-------+-------+------+
+| features_npy |  525  |  420  | 105  |
++--------------+-------+-------+------+
+Number of samples: 525
+Number of families: 1
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 split.py /home/firmfuzz/Desktop/elf_benign_vex/ train.txt test.txt
+
+
+
+python3 split.py /home/firmfuzz/Desktop/elf_benign_npy/ ../train.txt ../test.txt
+
+
+
+
+--------------------------------------
+for fn in 'train.txt' 'test.txt'; do shuf $fn > tmp.txt; mv tmp.txt $fn; done
+-------------------------------
+
+--------------------------NEW scripts to EXTRACT VEX-IR based FEATURES FROM ELF BINAIRES-----------------------------
+python3 feature_check.py train.txt
+Adding : 420
+train.txt: [ 18453.361   11122.686  170417.14    80242.09    23561.512  111747.5
+      0.          0.          0.          0.       1072.4967      0.
+      0.          0.          0.       3112.          0.          0.
+      0.    ]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py test.txt
+Adding : 105
+test.txt: [ 5043.9917   2929.1255  41422.305   20627.564    6464.334   28954.
+     0.          0.          0.          0.        323.25836     0.
+     0.          0.          0.       1121.          0.          0.
+     0.     ]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+--------------------------------------------------------------------------------------------------
+feature was good with the old ELF files with the same codes of vex based feature extraction
+
+'/home/firmfuzz/Desktop/elf_benign_old_binaries_npy/features_npy/libexif.so.12.3.3_raw.npy', '/home/firmfuzz/Desktop/elf_benign_old_binaries_npy/features_npy/3a51532809386c4799e40057eab1deb6_raw.npy', '/home/firmfuzz/Desktop/elf_benign_old_binaries_npy/features_npy/d9f388b07231dc959fb01623d608148c.out_raw.npy']}
++--------------+-------+-------+------+
+|    Label     | Total | Train | Test |
++--------------+-------+-------+------+
+| features_npy |  199  |  160  |  39  |
++--------------+-------+-------+------+
+Number of samples: 199
+Number of families: 1
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# for fn in 'train.txt' 'test.txt'; do shuf $fn > tmp.txt; mv tmp.txt $fn; done
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py test.txt
+Adding : 39
+test.txt: [1.5002616e+03 7.9814215e+02 2.4176746e+04 1.0157342e+04 2.6390010e+03
+ 2.6094500e+04 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 3.0000000e+00 0.0000000e+00 1.3800000e+02 4.6000000e+02 1.6400000e+02
+ 2.6700000e+02 4.5000000e+01 4.0000000e+00 2.7000000e+01]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py train.txt
+Adding : 160
+train.txt: [6.5470884e+03 3.5566472e+03 8.6198570e+04 3.9606098e+04 1.1967335e+04
+ 1.0718000e+05 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 2.1600000e+01 0.0000000e+00 1.5560000e+03 1.6900000e+03 1.2770000e+03
+ 9.3800000e+02 2.3400000e+02 3.8000000e+01 4.3700000e+02]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py train.txt
+Adding : 160
+train.txt: [6.5470884e+03 3.5566472e+03 8.6198570e+04 3.9606098e+04 1.1967335e+04
+ 1.0718000e+05 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 2.1600000e+01 0.0000000e+00 1.5560000e+03 1.6900000e+03 1.2770000e+03
+ 9.3800000e+02 2.3400000e+02 3.8000000e+01 4.3700000e+02]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+
+
+===================================================================
+19oct2025
+now testing x86 based binaries of new downlaoded files around 2000
++--------------+-------+-------+------+
+|    Label     | Total | Train | Test |
++--------------+-------+-------+------+
+| features_npy |  2067 |  1654 | 413  |
++--------------+-------+-------+------+
+Number of samples: 2067
+Number of families: 1
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 split.py /home/firmfuzz/Desktop/elf_benign_x86_new_19oct2025/ train_x86.txt test_x86.txt
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# for fn in 'train_x86.txt' 'test_x86.txt'; do shuf $fn > tmp.txt; mv tmp.txt $fn; done
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py test_x86.txt
+Adding : 413
+test_x86.txt: [ 17919.953    9098.838  135905.03    26242.162    1285.5    130586.
+      0.          0.          0.          0.       1128.2738      0.
+      0.        136.          0.       1610.          0.          0.
+      0.    ]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py train_x86.txt
+Adding : 1654
+train_x86.txt: [7.0668023e+04 3.6727223e+04 5.2844162e+05 1.0516373e+05 3.0640000e+03
+ 5.2034900e+05 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 4.1035410e+03 0.0000000e+00 1.0000000e+00 6.7000000e+02 0.0000000e+00
+ 5.1550000e+03 0.0000000e+00 0.0000000e+00 0.0000000e+00]
+
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+
+------------------------------
+19oct2025,
+OLD binaries again today with 300 plus binaries now
+
+66869d5b9fe2840_raw.npy']}
++--------------+-------+-------+------+
+|    Label     | Total | Train | Test |
++--------------+-------+-------+------+
+| features_npy |  353  |  283  |  70  |
++--------------+-------+-------+------+
+Number of samples: 353
+Number of families: 1
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 split.py /home/firmfuzz/Desktop/elf_benign_old_binaries_npy/ train_old_bin.txt test_old_bin.txt
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py train_old_bin.txt 
+Adding : 283
+train_old_bin.txt: [1.0715904e+04 5.9837783e+03 1.6373425e+05 7.0485773e+04 2.0881516e+04
+ 1.7637900e+05 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 2.4600000e+01 0.0000000e+00 2.5170000e+03 2.9500000e+03 1.9930000e+03
+ 1.2680000e+03 3.1600000e+02 5.8000000e+01 6.3400000e+02]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py test 
+test_old_bin.txt  test_old.txt      test.txt_ARM      test_x86.txt      
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py test_old_bin.txt 
+Adding : 70
+test_old_bin.txt: [2.7429414e+03 1.5205984e+03 3.9571320e+04 1.8187281e+04 5.3013354e+03
+ 5.3681500e+04 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 4.0000000e+00 0.0000000e+00 1.9000000e+02 4.9300000e+02 1.5500000e+02
+ 5.1700000e+02 6.7000000e+01 3.0000000e+00 1.0000000e+00]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+
+
+
+
+
+
+------------OLD ARM based ELF DATA SET------
+
+python3 feature_check.py train.txt
+Adding : 456
+train.txt: [2.74441323e+11 1.46533100e+06 4.73682255e+04 8.25520000e+05
+ 7.75506000e+05 4.39069000e+05 2.58972000e+05 1.08198600e+06
+ 1.52606100e+06 1.93000000e+02 2.76240000e+04 8.08800000e+03
+ 2.24390000e+04 8.30000000e+01 2.76240000e+04 2.16280000e+04
+ 7.44900000e+03 2.12700000e+03 4.26800000e+03 8.32800000e+03
+ 4.00000000e+01]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf/autoencoder# python3 feature_check.py test.txt 
+Adding : 113
+test.txt: [8.43731068e+10 3.85661000e+05 1.28179903e+04 2.51128000e+05
+ 2.00454000e+05 1.18210000e+05 6.70380000e+04 3.00829000e+05
+ 4.20579000e+05 1.32000000e+02 6.15400000e+03 1.13700000e+03
+ 5.18200000e+03 2.20000000e+01 6.15400000e+03 5.11300000e+03
+ 1.39800000e+03 1.74000000e+02 1.50000000e+01 4.59400000e+03
+ 0.00000000e+00]
+
+ ------------------------------------------------
+
+22oct2025
+
+////feature extraction 
+[1238/1242] Processing: 915714144b81f0f4119c745e0d74b0d1.elf
+[⏭️] Skipping /home/firmfuzz/Documents/elf_benign/915714144b81f0f4119c745e0d74b0d1.elf - output already exists
+
+[1239/1242] Processing: 30326d4c6644a0469a3b6df0b580a5e8.elf
+[⏭️] Skipping /home/firmfuzz/Documents/elf_benign/30326d4c6644a0469a3b6df0b580a5e8.elf - output already exists
+
+[1240/1242] Processing: b5e67106a118e585449d20e97fd8f634.elf
+[⏭️] Skipping /home/firmfuzz/Documents/elf_benign/b5e67106a118e585449d20e97fd8f634.elf - output already exists
+
+[1241/1242] Processing: libupnp.so.elf
+[⏭️] Skipping /home/firmfuzz/Documents/elf_benign/libupnp.so.elf - output already exists
+
+[1242/1242] Processing: 2c998876f8980331e65c4aa9b4546b1f.elf
+[⏭️] Skipping /home/firmfuzz/Documents/elf_benign/2c998876f8980331e65c4aa9b4546b1f.elf - output already exists
+
+[🎉] BATCH PROCESSING COMPLETE
+    Successful: 618
+    Failed: 6
+    Total: 1242
+root@firmfuzz-vm:/home/firmfuzz/Documents/new_scripts# python raw_feature_extraction_new.py  --input-dir /home/firmfuzz/Documents/elf_benign/ --output-dir /home/firmfuzz/Documents/elf_benign_new_npy
+
+----------------------------------
+22oct205
+
++--------------+-------+-------+------+
+|    Label     | Total | Train | Test |
++--------------+-------+-------+------+
+| features_npy |  618  |  495  | 123  |
++--------------+-------+-------+------+
+Number of samples: 618
+Number of families: 1
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py test_old_bin.txt 
+Adding : 123
+test_old_bin.txt: [4.6706445e+03 2.5689351e+03 8.0602023e+04 3.4306625e+04 1.1626010e+04
+ 8.4379500e+04 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 1.6000000e+01 0.0000000e+00 8.6800000e+02 9.0600000e+02 5.8600000e+02
+ 7.2000000e+02 7.9000000e+01 1.5000000e+01 1.9400000e+02]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py train_old_bin.txt 
+Adding : 495
+train_old_bin.txt: [1.83798711e+04 1.04752051e+04 2.72982062e+05 1.23908016e+05
+ 3.90141875e+04 3.27820500e+05 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00 3.85999985e+01 0.00000000e+00
+ 2.55800000e+03 4.47700000e+03 2.75300000e+03 3.07600000e+03
+ 4.90000000e+02 7.70000000e+01 5.73000000e+02]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+
+25oct2025
+
+Again with new code to check it
+root@firmfuzz-vm:/home/firmfuzz/Desktop/elf_benign_old_binaries_raw# python convert_raw_to_npy_25oct2025.py 
+
+----
+featcheck 
+-------------------------------
+26oct2025, 
+again working with improve codes except in the API part yet.
+
+python3 raw_feature_extraction_26oct2025.py --input-dir /home/firmfuzz/Documents/elf_benign_2/ --output-dir /home/firmfuzz/Documents/elf_benign_2_raw/
+
+27oct205
+python3 raw_feature_extraction_26oct2025_malware.py --input-dir /home/firmfuzz/Documents/malware_1/ --output-dir /home/firmfuzz/Documents/elf_malware_1_raw/
+
+
++--------------+-------+-------+------+
+|    Label     | Total | Train | Test |
++--------------+-------+-------+------+
+| features_npy |  604  |  484  | 120  |
+|     inst     |   11  |   9   |  2   |
++--------------+-------+-------+------+
+Number of samples: 615
+Number of families: 2
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 split.py /home/firmfuzz/Documents/elf_benign_1_raw/ train_28oct2025.txt test_28oct2025.txt
+
+for fn in 'train_28oct2025.txt' 'test_28oct2025.txt'; do shuf $fn > tmp.txt; mv tmp.txt $fn; done
+
+
++--------------+-------+-------+------+
+|    Label     | Total | Train | Test |
++--------------+-------+-------+------+
+| features_npy |  604  |  484  | 120  |
++--------------+-------+-------+------+
+Number of samples: 604
+Number of families: 1
+(reverse-i-search)`split': python3 ^Clit.py /home/firmfuzz/Documents/elf_benign_1_npy/ train_28oct2025.txt test_28oct2025.txt
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# for fn in 'train_28oct2025.txt' 'test_28oct2025.txt'; do shuf $fn > tmp.txt; mv tmp.txt $fn; done
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py train_28oct2025.txt 
+Adding : 484
+train_28oct2025.txt: [1.7668910e+04 1.0113141e+04 2.2079862e+05 9.1154117e+04 3.2106486e+04
+ 3.8292778e+05 0.0000000e+00 6.4008400e+05 0.0000000e+00 9.5478508e+04
+ 4.3000000e+01 7.0383331e+02 2.1370000e+03 3.7310000e+03 2.3270000e+03
+ 2.6640000e+03 4.0400000e+02 6.4000000e+01 4.3800000e+02]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 feature_check.py test_28oct2025.txt 
+Adding : 120
+test_28oct2025.txt: [4.3626772e+03 2.5757092e+03 5.6733500e+04 2.2334217e+04 8.2304990e+03
+ 9.4648734e+04 0.0000000e+00 1.5927150e+05 0.0000000e+00 2.4858152e+04
+ 1.0600000e+01 1.3750000e+02 5.4300000e+02 1.2620000e+03 6.6000000e+02
+ 1.0240000e+03 1.1200000e+02 1.8000000e+01 1.8900000e+02]
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+
+
+28oct2025, a bit better but still need to improve the API part and adjustment of call_ etc .
+
+///////////////////////////////////////////////////////////
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf/autoencoder# 
+python3 normalize.py --train train.txt --test test.txt   --output normalize_elf_12oct2025.npy
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf/autoencoder# python3 normalize.py --train train.txt --test test.txt   --output normalize_elf_12oct2025.npy
+Normalizing samples: 569 / 569
+
+28oct2025
+python3 normalize.py --train train_28oct2025.txt --test test_28oct2025.txt   --output normalize_elf_benign_28oct2025.npy
+
+python3 normalize.py --train train_28oct2025.txt --test test_28oct2025.txt   --output normalize_elf_benign_28oct2025.npy
+Traceback (most recent call last):
+  File "/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder/normalize.py", line 31, in <module>
+    _main()
+  File "/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder/normalize.py", line 28, in _main
+    data.get_max(outputFN)
+  File "/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder/../dr.py", line 76, in get_max
+    b[:len(bytez)] = bytez
+    ~^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (1183,18) into shape (1183,19)
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 normalize.py --train train_28oct2025.txt --test test_28oct2025.txt   --output normalize_elf_benign_28oct2025.npy
+Normalizing samples: 604 / 604
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# vim ../dr.py 
+
+--------
+28oct2025
+python3 autoencoder.py --train train_28oct2025.txt  --test train_28oct2025.txt --normalize normalize_elf_benign_28oct2025.npy --model dr_elf_28oct2025.h5 >
+autoencoder_stdout_28oct2025.txt 2> autoencoder_stderr_28oct2025.txt
+
+Non-trainable params: 0 (0.00 B)
+/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder/../dr.py:133: RuntimeWarning: invalid value encountered in divide
+  yield (np.asarray(x) / self.maximum_val , np.asarray(x) / self.maximum_val)
+Epoch 1/10
+Traceback (most recent call last):
+  File "/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder/autoencoder.py", line 151, in <module>
+    _main()
+  File "/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder/autoencoder.py", line 141, in _main
+    model.fit(
+  File "/usr/local/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/usr/local/lib/python3.11/site-packages/keras/src/layers/input_spec.py", line 245, in assert_input_compatibility
+    raise ValueError(
+ValueError: Input 0 of layer "functional" is incompatible with the layer: expected shape=(None, 20000, 19), found shape=(None, 20000, 18)
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python3 autoencoder.py --train train_28oct2025.txt  --test train_28oct2025.txt --normalize normalize_elf_benign_28oct2025.npy --model dr_elf_28oct2025.h5
+
+
+
+time python3 autoencoder.py --train train_28oct2025.txt  --test train_28oct2025.txt --normalize normalize_elf_benign_28oct2025.npy --model dr_elf_28oct2025.h5 > autoencoder_stdout_28oct2025.txt 2>  autoencoder_stderr_28oct2025.txt
+
+again 18 in the autoencoder while and safe_max = np.where(self.maximum_val == 0, 1, self.maximum_val)
+yield (np.asarray(x) / safe_max, np.asarray(x) / safe_max)
+ in the dr.py because of zero feature and got warning and NAN while training. 
+----
+
+time python3 autoencoder.py --train ../../train.txt  --test ../../test.txt --normalize ../../normalize_elf.npy --model dr_elf.h5 > autoencoder_stdout.txt 2> autoencoder_stderr.txt
+
+
+
+------------------
+16oct2025,
+after losing all work on elf binaries .
+----now extracting vex ir based feature set
+pip install angr
+-----
+18oct2025, raw feature extraction on old binaries is in progess.
+
+now running on the other binaires
+
+root@firmfuzz-vm:/home/firmfuzz/Documents/new_scripts# python raw_feature_extraction_new.py  --input-dir /home/firmfuzz/Documents/elf_benign/ --output-dir /home/firmfuzz/Documents/elf_benign_new_npy
+python raw_feature_extraction_new.py  --input-dir /home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware --output-dir /home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware_raw
+
+/home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware
+/home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware_raw
+
+root@firmfuzz-vm:/home/firmfuzz/Documents/new_scripts# python raw_feature_extraction_new.py  --input-dir /home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware --output-dir /home/firmfuzz/Documents/18oct2025/Labeled-Elfs-main/benignware_raw
+
+-----
+6Nov2025, sample testing related work is done on my PC. 
+raw and .npy for sample is ready for mse generation 
+and function,txt is also ready for roc curve
+now testing it
+
+##6nov2025
+model = tf.keras.models.load_model(model_path, compile=False)
+changes in the mse fixed the issue
+
+=====
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_28oct2025.h5" --normalize "normalize_elf_benign_28oct2025.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse"
+2025-11-06 20:55:56.580245: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2025-11-06 20:55:56.648553: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-06 20:55:58.322104: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2025-11-06 20:55:59.851668: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+2025-11-06 20:56:00.320750: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+2025-11-06 20:56:00.473409: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+2025-11-06 20:56:00.545350: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+2025-11-06 20:56:02.772160: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+Took 4.586209535598755 seconds to load model.
+1/1 ━━━━━━━━━━━━━━━━━━━━ 7s 7s/step
+
+On average took 7.329581260681152 seconds to retrieve & save outputs
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_28oct2025.h5" --normalize "normalize_elf_benign_28oct2025.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse"
+2025-11-06 20:55:56.580245: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2025-11-06 20:55:56.648553: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-11-06 20:55:58.322104: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2025-11-06 20:55:59.851668: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+2025-11-06 20:56:00.320750: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+2025-11-06 20:56:00.473409: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+2025-11-06 20:56:00.545350: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+2025-11-06 20:56:02.772160: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+Took 4.586209535598755 seconds to load model.
+1/1 ━━━━━━━━━━━━━━━━━━━━ 7s 7s/step
+
+On average took 7.329581260681152 seconds to retrieve & save outputs
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+
+

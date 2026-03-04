@@ -1,0 +1,270 @@
+testing malicious files 15june2023
+
+
+
+
+
+for annotation
+manual method for annotation file generation 
+
+run IDARO on cysec server with command
+wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe 
+
+
+1. load in the IDAPRO and copy function from left pan into file in text file . like output.txt
+ (make sure no new line or empty line in the end of file)
+
+2. run this command on output.txt (file1_annotation.txt)
+
+ cat file1_annotation.txt | awk '{print $3" "$1}' > file1_annotation_v1.txt
+
+1nov2025
+
+notation# cat annotation_bofishy.txt | awk '{print $3" "$1}' > annotation_bofishy_v1.txt 
+root@cyberlab:/home/cyberlab/Documents/annotation#
+
+The above command purpose is to create another file which contain $3 (address) and $1(names) into file1_annotation_v1.txt
+
+3.
+cat file1_annotation_v1.txt | awk '{print $1" ben-"$2}' > file1_annotation_v2.txt 
+
+cat annotation_bofishy.txt | awk '{print $3" "$1}' > annotation_bofishy_v1.txt 
+root@cyberlab:/home/cyberlab/Documents/annotation# cat annotation_bofishy_v1.txt | awk '{print $1" ben-"$2}' > annotation_bofishy_v2.txt 
+root@cyberlab:/home/cyberlab/Documents/annotation#
+
+3. it will prodcue file1_annotation_v2.txt which will mark "ben" mean benign will all function 
+4. in the 5th step, "mal" need to add with desired function.  vim editor with visual block can be used to make mal label in column form.
+or any GUI editor can be used 
+
+
+for bpfdoor
+cat bpfdoor_annotation1.txt | awk '{print $3" "$1}' > bpfdoor_annotation1_v1.txt
+
+root@deepreflect-virtual-machine:/home/deepreflect/Documents# cat bpfdoor_annotation1_v1.txt | awk '{print $1" ben-"$2}' > bpfdoor_annotation1_v2.txt 
+root@deepreflect-virtual-machine:/home/deepreflect/Documents# 
+
+###to run this script, we need RAW/NPY file of the sample first
+###2Nov2025
+
+python mse.py --feature "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr.h5" --normalize "normalize.npy" --output "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/output/rbot_mse"
+
+
+python mse.py --feature "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr.h5" --normalize "normalize.npy" --output "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/output/rbot_mse" > bpfdoor.txt
+
+#6nov2025
+/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot
+
+python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_28oct2025.h5" --normalize "normalize_elf_benign_28oct2025.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse"
+
+
+###function of the sample required
+5Nov2025, 
+///////////
+root@cyberlab:/home/cyberlab/Documents/2nov2025_improvded_extraction_malware/testing_malicious_elf_arm# python3 filehashes_elf_malicious_function_5nov2025.py 
+FileName is /home/cyberlab/Documents/2nov2025_improvded_extraction_malware/testing_malicious_elf_arm/elf_compiled/bofishy_output.elf
+1d425a268c69caa051544a0b9dfa2fb6
+---ELF file count is: 1--
+
+--E
+
+ RAW  feature File or function file NOT Exisits for 1  ELF files.
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/cyberlab/Documents/2nov2025_improvded_extraction_malware/testing_malicious_elf_arm/function_features_elf_malicious.py" "/home/cyberlab/Documents/2nov2025_improvded_extraction_malware/testing_malicious_elf_arm/elf_compiled/bofishy_output.elf"
+------------------++++++++++++-
+INNER: Full path is: <DirEntry 'bofishy_output.elf'> and just the name is: bofishy_output.elf
+1
+-----------------------
+
+ Raw features of 1 file are extracted.
+1 files scanned successfully.
+ NEW Raw features of 1 file are extracted.
+root@cyberlab:/home/cyberlab/Documents/2nov2025_improvded_extraction_malware/testing_malicious_elf_arm# 
+
+##6nov2025
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_28oct2025.h5" --normalize "normalize_elf_benign_28oct2025.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse"
+2025-11-06 20:55:56.580245: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2025-11-06 20:55:56.648553: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+
+1/1 ━━━━━━━━━━━━━━━━━━━━ 7s 7s/step
+
+On average took 7.329581260681152 seconds to retrieve & save outputs
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+
+
+
+////////////////////////
+go to grader
+
+15nov2025
+----------------------
+---15nov2025
+Hmmm, hmm newley generated raw/npy file using idapro does not work in the mse step because we have 20 feature in that sample and now we have 18, so commented the two features and again checked and got results 
+----------
+so feature.npy files of mse and sample.npy file does not work. so strange
+--------------result incase of using the idapro base sample raw/npy files-------
+------------------------------
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/grader# python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_roc"
+/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy
+Number of RoIs (basic blocks): 20000
+ROC Curve. AUC: 0.9565217391304348
+FPR TRP Threshold
+0.0 0.0 inf
+0.043478260869565216 0.0 1.8058303782150418
+0.043478260869565216 1.0 1.2875497824237994
+1.0 1.0 0.011381771498328315
+
+Threshold - TPR at 80% (FPR 4.3478260869565215%): 1.2875497824237994
+Total: 24 | TP: 1 | FP: 1 | FN: 0 | TN: 22
+TPR: 100.0% | FPR: 4.3478260869565215%
+TP: Function Address: 0x1055c  Score: 1.2875497824237994  Name: main
+FP: Function Address: 0x10478  Score: 1.8058303782150418
+
+Threshold - FPR at 5% (TPR 100.0%): 0.011381771498328315
+Total: 24 | TP: 1 | FP: 23 | FN: 0 | TN: 0
+TPR: 100.0% | FPR: 100.0%
+TP: Function Address: 0x1055c  Score: 1.2875497824237994  Name: main
+FP: Function Address: 0x103f8  Score: 0.13418852877233065
+FP: Function Address: 0x10418  Score: 0.19830853277529126
+FP: Function Address: 0x10424  Score: 0.17591371163061423
+FP: Function Address: 0x10430  Score: 0.1966486876063639
+FP: Function Address: 0x1043c  Score: 0.1961919577792177
+FP: Function Address: 0x10448  Score: 0.185012844896904
+FP: Function Address: 0x104a8  Score: 0.19282711105385542
+FP: Function Address: 0x10460  Score: 0.1632126174955035
+FP: Function Address: 0x1046c  Score: 0.20761034054095895
+FP: Function Address: 0x10478  Score: 1.8058303782150418
+FP: Function Address: 0x104cc  Score: 0.16744365124350258
+FP: Function Address: 0x10558  Score: 0.22731284768539994
+FP: Function Address: 0x104f8  Score: 0.12009102811616665
+FP: Function Address: 0x10530  Score: 0.397482789368254
+FP: Function Address: 0x106a0  Score: 0.10355994912406585
+FP: Function Address: 0x217ec  Score: 0.035955629418575566
+FP: Function Address: 0x217f0  Score: 0.027664559767679953
+FP: Function Address: 0x217f4  Score: 0.033651000193729096
+FP: Function Address: 0x217f8  Score: 0.029327651153938344
+FP: Function Address: 0x217fc  Score: 0.0259098588394752
+FP: Function Address: 0x21800  Score: 0.021255341694210405
+FP: Function Address: 0x21804  Score: 0.013139440646484545
+FP: Function Address: 0x21808  Score: 0.011381771498328315
+
+------
+
+
+
+python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_roc"
+
+error
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/grader# python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_roc"
+/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy
+Number of RoIs (basic blocks): 20000
+Traceback (most recent call last):
+  File "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/roc.py", line 204, in <module>
+    _main()
+  File "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/roc.py", line 160, in _main
+    fpr, tpr, thresholds = metrics.roc_curve(roc_y, roc_score)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sklearn/utils/_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sklearn/metrics/_ranking.py", line 1163, in roc_curve
+    fps, tps, thresholds = _binary_clf_curve(
+                           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sklearn/metrics/_ranking.py", line 880, in _binary_clf_curve
+    pos_label = _check_pos_label_consistency(pos_label, y_true)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sklearn/utils/validation.py", line 2651, in _check_pos_label_consistency
+    raise ValueError(
+ValueError: y_true takes value in {} and pos_label is not specified: either make y_true take value in {0, 1} or {-1, 1} or pass pos_label explicitly.
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/grader# 
+
+---
+15nov2025
+-------------
+Now generated raw and noy file susing idapro script on my own pc and now testing it 
+mse file will be generated
+
+----------for first sample--------bofishy---
+ 829  python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_28oct2025.h5" --normalize "normalize_elf_benign_28oct2025.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse"
+  830  vim ../dr.py +116
+  831  python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_28oct2025.h5" --normalize "normalize_elf_benign_28oct2025.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse"
+  832  vim ../dr.py +141
+  833  python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_28oct2025.h5" --normalize "normalize_elf_benign_28oct2025.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse"
+  834  python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_roc"
+  835  cd -
+  836  python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_roc"
+  837  vim roc.py
+  838  python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_roc"
+  839  python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_roc" >> bofisy_15nov2025_with_vex_model_and_raw_npy_annotation_function_using_idapro.txt
+  840  python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex/grader/malware/rbot/output/rbot_roc" >> bofisy_15nov2025_with_vex_model.txt
+  841  history
+
+-------------------------------
+-------
+19nov2025
+updated the annotation file and corrected it . using it on old method
+i am using old idapro files of bpfdoor malware
+------------------------
+
+
+
+
+/////
+old
+
+python roc.py --mse "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/rbot_function.txt" --annotation "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/rbot_annotation.txt" --roc "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/output/rbot_roc"
+
+
+----
+again 14july2023
+
+python roc.py --mse "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/rbot_function.txt" --annotation "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/rbot_annotation.txt" --roc "/home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/output/rbot_roc" > /home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/TPR.txt
+root@deepreflect-virtual-machine:/home/deepreflect/Desktop/deepreflect_elf/grader# 
+
+
+python roc_multi_ELF.py VEX-IR-door.npz MIPS-door.npz ARM-door.npz AE-VEX-IR DR-MIPS DR-ARM BPFDoor cas1_combine.png
+
+
+--------------------------------------------------NOV182023
+append .elf at the end of sample
+from above steps we have annotation in the documents 
+go to testing_malicious_elf_arm and run *_function.py for function fo sample 
+go to testing_malicious_elf_arm and run *_raw_files.py for function fo sample 
+convert into .npy 
+similary for raw_file of sample and npy conversion of it. 
+Readme for running test cases in DeepRefect_ELF
+
+1. NOTE: as we are changing in rbot  malware, so we have to use  this in our tst cases. i mean rbot_*  in following places. 
+2. NOTE: deepreflect main code path is /home/deepreflect/Desktop/deepreflect_elf
+3. NOTE: change your features like this fomrat rbot_function.txt and rbot_annotation.txt and rbot_feature.npy 
+4. NOTE: functions and annotation files will be placed in the  /home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot
+5. copy functions and annotation files at the above path like this
+rbot_function.txt and rbot_annotation.txt
+
+6. Next step is to go inside  /home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot/output  and at this pay copy .npy file here like this rbot_feature.npy  here  and rbot_feature_path.txt file contain this path likke this  /home/deepreflect/Desktop/deepreflect_elf/grader/malware/rbot//output/rbot_feature.npy
+
+7. AFter above step now data is  at specific path. 
+8. Now first we have to run command inside the /home/deepreflect/Desktop/deepreflect/autoencoder . 
+
+9. following is the command and kindly check the path if requried. This step will produce rbot_feature.npy in the path /home/deepreflect/Desktop/deepreflect/grader/malware/rbot/output/rbot_mse
+10.
+
+python mse.py --feature "/home/deepreflect/Desktop/deepreflect/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr.h5" --normalize "../../normalize.npy" --output "/home/deepreflect/Desktop/deepreflect/grader/malware/rbot/output/rbot_mse"
+
+
+output of the above command gives in the terminal like this On average took 14.133790254592896 seconds to retrieve & save outputs
+ and file inside the following path.
+11. 
+th above step will generate new rbot_feature.npy at /home/deepreflect/Desktop/deepreflect/grader/malware/rbot/output/rbot_mse
+
+12. Now step to run following command which will uses the functions and annotation file.
+
+13. go back to grader directory  and path is /home/deepreflect/Desktop/deepreflect/grader
+
+14.
+python roc.py --mse "/home/deepreflect/Desktop/deepreflect/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/deepreflect/Desktop/deepreflect/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/deepreflect/Desktop/deepreflect/grader/malware/rbot/rbot_function.txt" --annotation "/home/deepreflect/Desktop/deepreflect/grader/malware/rbot/rbot_annotation.txt" --roc "/home/deepreflect/Desktop/deepreflect/grader/malware/rbot/output/rbot_roc"
+
+15.
+the above command generate FP and TPR in the terminal and PNG file output (rbot_roc_func.png) inside the /home/deepreflect/Desktop/deepreflect/grader/malware/rbot/output
+16. open the file rbot_roc_func.png using GUI of ubuntu to view it .
+
+HINT: cp for copy and mv for rename in linux 
+HINT: see the commands.txt for lab and  office for help if needed 

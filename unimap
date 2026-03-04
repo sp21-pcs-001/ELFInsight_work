@@ -1,0 +1,5 @@
+root@firmfuzz-vm:/home/firmfuzz/Downloads/unimap1/UniMap-main/maie# python3 map_embeddings.py arm.emb x86.emb arm_aligned.emb x86_aligned.emb --unsupervised -v --stochastic_initial 0.5 --stochastic_interval 5
+
+
+root@firmfuzz-vm:/home/firmfuzz/Downloads/unimap/UniMap-main/maie# python3 map_embeddings.py arm.emb x86.emb arm_aligned.emb x86_aligned.emb --unsupervised -v
+
