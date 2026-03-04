@@ -6,7 +6,8 @@ import hashlib
 def get_dr_binja():
 
     i = 0
-    with os.scandir('/home/firmfuzz/Downloads/caimp/from_debian_mips') as root_dir:
+    with os.scandir('/home/firmfuzz/Downloads/caimp/from_debian_mips_4march2026') as root_dir:
+    #with os.scandir('/home/firmfuzz/Downloads/caimp/from_debian_mips') as root_dir: #before 4march2026
     #with os.scandir('/home/deepreflect/Desktop/Benign') as root_dir:
         for path in root_dir:
             if path.is_file():
@@ -21,7 +22,12 @@ def get_dr_binja():
 
 
                     #extract_command = '/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/deepreflect/Desktop/elf_malicious/zabi-extracted/"' + " " +  '"' + "/home/deepreflect/Desktop/Virus/" +  path.name + '"'
-                    extract_command = '/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py"' + " " +  '"' + "/home/firmfuzz/Downloads/caimp/extracted/" +  path.name + '"'
+                    ##for my method or old method for asm
+#                    extract_command = '/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py"' + " " +  '"' + "/home/firmfuzz/Downloads/caimp/extracted/" +  path.name + '"'
+#                    ##for new method on 4march2026
+                    extract_command = '/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm_new1.py"' + " " +  '"' + "/home/firmfuzz/Downloads/caimp/extracted_4march2026/" +  path.name + '"'
+                 
+                    #extract_command = '/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm_new.py"' + " " +  '"' + "/home/firmfuzz/Downloads/caimp/extracted/" +  path.name + '"'
 ##for  cmplt.py
 ##                    extract_command = '/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/deepreflect/Desktop/cmplt.py"' + " " +  '"' + "/home/deepreflect/Desktop/dataset/" +  path.name + '"'
  ##for function_feature.py
@@ -40,7 +46,7 @@ def get_dr_binja():
                     print ("-----------------------")
                     print (output)
                     print(f" Raw features of {i} file are extracted.")
-                    exit()
+                    #exit()
                    
                 else:
                     print ("-----IGNORE------------------")
