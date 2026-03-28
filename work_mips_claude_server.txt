@@ -1,0 +1,39 @@
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files# wget https://downloads.openwrt.org/releases/22.03.0/packages/mipsel_24kc/base/agetty_2.37.4-1_mipsel_24kc.ipk
+--2026-02-22 20:41:44--  https://downloads.openwrt.org/releases/22.03.0/packages/mipsel_24kc/base/agetty_2.37.4-1_mipsel_24kc.ipk
+Resolving downloads.openwrt.org (downloads.openwrt.org)... 151.101.194.132, 151.101.2.132, 151.101.66.132, ...
+Connecting to downloads.openwrt.org (downloads.openwrt.org)|151.101.194.132|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 21030 (21K) [application/octet-stream]
+Saving to: ‘agetty_2.37.4-1_mipsel_24kc.ipk’
+
+agetty_2.37.4-1_mipsel_24kc.ipk                      100%[=====================================================================================================================>]  20.54K  --.-KB/s    in 0.02s   
+
+2026-02-22 20:41:45 (936 KB/s) - ‘agetty_2.37.4-1_mipsel_24kc.ipk’ saved [21030/21030]
+
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files# ls
+agetty_2.37.4-1_mipsel_24kc.ipk
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files# ar x agetty_2.37.4-1_mipsel_24kc.ipk 
+ar: agetty_2.37.4-1_mipsel_24kc.ipk: file format not recognized
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files# file agetty_2.37.4-1_mipsel_24kc.ipk 
+agetty_2.37.4-1_mipsel_24kc.ipk: gzip compressed data, from Unix, original size modulo 2^32 30720
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files# mkdir test_extract
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files# cp agetty_2.37.4-1_mipsel_24kc.ipk test_extract/agetty.tar.gz
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files# cd test_extract
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files/test_extract# tar xzf agetty.tar.gz
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files/test_extract# ls
+agetty.tar.gz  control.tar.gz  data.tar.gz  debian-binary
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files/test_extract# dpkg-deb -x agetty_2.37.4-1_mipsel_24kc.ipk test_extract/
+dpkg-deb: error: failed to read archive 'agetty_2.37.4-1_mipsel_24kc.ipk': No such file or directory
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files/test_extract# find test_extract/ -type f | xargs file | grep -i mips
+find: ‘test_extract/’: No such file or directory
+Usage: file [-bcCdEhikLlNnprsSvzZ0] [--apple] [--extension] [--mime-encoding]
+            [--mime-type] [-e <testname>] [-F <separator>]  [-f <namefile>]
+            [-m <magicfiles>] [-P <parameter=value>] <file> ...
+       file -C [-m <magicfiles>]
+       file [--help]
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files/test_extract# cd /home/firmfuzz/Downloads/caimp/openwrt_files/test_extract
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files/test_extract# tar xzf data.tar.gz
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files/test_extract# find . -type f | xargs file | grep -i mips
+./usr/sbin/agetty: ELF 32-bit LSB executable, MIPS, MIPS32 rel2 version 1 (SYSV), dynamically linked, interpreter /lib/ld-musl-mipsel-sf.so.1, no section header
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/openwrt_files/test_extract# 
+

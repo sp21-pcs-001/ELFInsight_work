@@ -1,0 +1,77 @@
+ 818  pythn3 GenerationOpcode-1-12-2023.py 
+  819  pythn GenerationOpcode-1-12-2023.py 
+  820  python GenerationOpcode-1-12-2023.py 
+  821  ls
+  822  ls -l Mau\ mal/
+  823  ls
+  824  mv Mau\ mal/libuuid.so.1.3.asm .
+  825  rm Mau\ mal/
+  826  mkdir mal
+  827  mv libuuid.so.1.3.asm mal
+  828  python GenerationOpcode-1-12-2023.py 
+  829  ls
+  830  python GenerationOpcode-1-12-2023.py 
+  831  cd mal/
+  832  mkdir ASM_mips_Opcode
+  833  cd ..
+  834  python GenerationOpcode-1-12-2023.py 
+  835  cd -
+  836  cd ASM_mips_Opcode/
+  837  ls
+  838  vim libuuid.so.1.3.asm 
+  839  python GenerationOpcode-1-12-2023.py 
+  840  cd ..
+  841  python GenerationOpcode-1-12-2023.py 
+  842  md5sum  mal/6836eef034d1ca94eea67bc54b806aba.asm 
+  843  md5sum  mal/libuuid.so.1.3.asmMANUAL 
+  844  vim mal/6836eef034d1ca94eea67bc54b806aba.asm 
+  845  vim  mal/libuuid.so.1.3.asmMANUAL 
+  846  ls
+  847  md5sum mal/ASM_mips_Opcode/6836eef034d1ca94eea67bc54b806aba.asm 
+  848  md5sum mal/ASM_mips_Opcode/libuuid.so.1.3.asm 
+  849  md5sum mal/ASM_mips_Opcode/6836eef034d1ca94eea67bc54b806aba.asm 
+  850  pwd
+  851  history
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# 
+
+eged
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/haveged"
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# /usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/haveged"
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# python3 calling_ida_R_elf.py 
+haveged
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/haveged"
+------------------++++++++++++-
+Full path is: <DirEntry 'haveged'> and just the name is: haveged
+1
+-----------------------
+
+ Raw features of 1 file are extracted.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# /usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/haveged"
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# python3 calling_ida_R_elf.py 
+haveged
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/haveged"
+------------------++++++++++++-
+Full path is: <DirEntry 'haveged'> and just the name is: haveged
+1
+-----------------------
+
+ Raw features of 1 file are extracted.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# python3 calling_ida_R_elf.py 
+libuuid.so.1.3.0
+/usr/bin/wine /root/.wine/drive_c/Program\ Files/IDA\ 7.0/ida64.exe -B -c -A -S"/home/firmfuzz/Downloads/idascr/cmplt_asm.py" "/home/firmfuzz/Downloads/caimp/extracted/libuuid.so.1.3.0"
+------------------++++++++++++-
+Full path is: <DirEntry 'libuuid.so.1.3.0'> and just the name is: libuuid.so.1.3.0
+1
+-----------------------
+
+ Raw features of 1 file are extracted.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# cd ..
+root@firmfuzz-vm:/home/firmfuzz/Downloads# chmod -R 777 *
+root@firmfuzz-vm:/home/firmfuzz/Downloads# cd -
+/home/firmfuzz/Downloads/idascr
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# 
+
+-----------
+
+2march2026
+

@@ -1,0 +1,459 @@
+cyberlab@cyberlab:~$ sudo su 
+[sudo] password for cyberlab: 
+root@cyberlab:/home/cyberlab# cd Downloads/caimp_
+caimp_2march2026_on_4march2026_claude_says_autoencoder_is_wrong/
+caimp_4march2026_lstm_1/
+caimp_4march2026_lstm_2/
+caimp_4march2026_lstm_3/
+caimp_research_V1_by_calude_but_missing_dataset_required_before_2march2026/
+caimp_research.zip
+root@cyberlab:/home/cyberlab# cd Downloads/caimp_4march2026_lstm_3/
+root@cyberlab:/home/cyberlab/Downloads/caimp_4march2026_lstm_3# ls
+caimp_final_pipeline.py
+root@cyberlab:/home/cyberlab/Downloads/caimp_4march2026_lstm_3# python3 caimp_final_pipeline.py 
+
+============================================================
+  CAIMP COMPLETE PIPELINE
+  Phase 1: Paper Reproduction (cross-architecture)
+  Phase 2: MIPS Malware Detection + BiLSTM contribution
+============================================================
+
+[SETUP] Loading data...
+  Loading phrase table...
+  Loaded 635 Intel->MIPS mappings
+  Benign MIPS     : 1903
+  Malicious Intel : 281
+  Malicious MIPS  : 4592
+
+  Transforming malicious Intel -> MIPS...
+  Transformation coverage: 87.2%
+
+============================================================
+  PHASE 1: PAPER REPRODUCTION (Cross-Architecture)
+  Train: Benign MIPS + Transformed Malicious Intel
+  Test : Real Malicious MIPS (cross-architecture)
+============================================================
+
+  Train: 2184 | Val split: 437 | Test: 4592
+
+  Paper results (Table 9 MIPS-crossed):
+  RF  (paper)                    ACC=99.40%   F1=0.9930
+  SVM (paper)                    ACC=99.00%   F1=0.9890
+  NB  (paper)                    ACC=97.50%   F1=0.9730
+
+  Reproduced results (80/20 split):
+  Random Forest                  ACC=99.54%   F1=0.9954   AUC=1.0000
+  SVM                            ACC=99.08%   F1=0.9907   AUC=0.9996
+  Naive Bayes                    ACC=49.66%   F1=0.5612   AUC=0.7126
+
+  Cross-architecture generalization test:
+  (How well do trained models detect REAL MIPS malware?)
+  RF     detected    0/4592 malicious MIPS  ACC=0.00%
+  SVM    detected    0/4592 malicious MIPS  ACC=0.00%
+  NB     detected  196/4592 malicious MIPS  ACC=4.27%
+
+  Finding: Phrase table transformation achieves high
+  accuracy in controlled setting but limited cross-arch
+  generalization to real MIPS malware patterns.
+
+============================================================
+  PHASE 2: MIPS MALWARE DETECTION (Novel Contribution)
+  Train: Benign MIPS + Malicious MIPS (80% split)
+  Test : Held-out Malicious MIPS (20%)
+  Models: RF, SVM, NB, BiLSTM
+============================================================
+
+  Total MIPS: 6495 (1903 benign + 4592 malicious)
+  Train: 5196 | Test: 1299
+  Train class balance: 1522 benign / 3674 malicious
+  Test  class balance: 381 benign / 918 malicious
+
+  SVM/RF/NB results (80/20 internal split):
+  Random Forest                  ACC=99.71%   F1=0.9971   AUC=0.9999
+  SVM                            ACC=95.58%   F1=0.9566   AUC=0.9964
+  Naive Bayes                    ACC=93.46%   F1=0.9323   AUC=0.8923
+
+  Final test results (held-out 20%):
+  RF                             ACC=99.77%  F1=0.9977  AUC=1.0000
+  SVM                            ACC=95.30%  F1=0.9540  AUC=0.9967
+  NB                             ACC=94.23%  F1=0.9408  AUC=0.9084
+
+  BiLSTM (novel contribution - sequential opcode patterns):
+  Vocab size: 240  |  Seq len: 500  |  Train: 4157  |  Val: 1039
+    Epoch   5/30  loss=0.0294  val_acc=99.42%
+    Epoch  10/30  loss=0.0094  val_acc=99.52%
+    Epoch  15/30  loss=0.0018  val_acc=99.33%
+    Epoch  20/30  loss=0.0003  val_acc=99.33%
+    Epoch  25/30  loss=0.0002  val_acc=99.33%
+    Epoch  30/30  loss=0.0001  val_acc=99.33%
+
+  BiLSTM vs SVM/RF/NB on MIPS Malware Detection
+  BiLSTM (val)                   ACC=99.62%  F1=0.9962
+  BiLSTM (test)                  ACC=99.62%  F1=0.9962  AUC=0.9999
+              precision    recall  f1-score   support
+
+      Benign       0.99      0.99      0.99       381
+   Malicious       1.00      1.00      1.00       918
+
+    accuracy                           1.00      1299
+   macro avg       0.99      1.00      1.00      1299
+weighted avg       1.00      1.00      1.00      1299
+
+
+============================================================
+  SUMMARY
+============================================================
+  Phase 1: CAIMP paper reproduction
+    RF  99.54% (paper 99.40%) BEATS paper
+    SVM 99.08% (paper 99.00%) BEATS paper
+    Finding: Cross-arch generalization limited
+
+  Phase 2: Novel contribution - MIPS malware detection
+    RF/SVM/NB/BiLSTM on real MIPS benign + malicious
+    BiLSTM captures sequential opcode patterns
+    Paper suggested deep learning as future work
+============================================================
+root@cyberlab:/home/cyberlab/Downloads/caimp_4march2026_lstm_3# 
+root@cyberlab:/home/cyberlab/Downloads/caimp_4march2026_lstm_3# cd ..
+root@cyberlab:/home/cyberlab/Downloads# cd caimp_5march2026_lstm_4/
+root@cyberlab:/home/cyberlab/Downloads/caimp_5march2026_lstm_4# python3 caimp_final_v2.py 
+
+============================================================
+  CAIMP COMPLETE PIPELINE — FINAL VERSION
+  With confusion matrices + cross-validation
+============================================================
+
+[SETUP] Loading data...
+  Loading phrase table...
+  Loaded 635 Intel->MIPS mappings
+  Benign MIPS     : 1903
+  Malicious Intel : 281
+  Malicious MIPS  : 4592
+  Transformation coverage: 87.2%
+
+============================================================
+  PHASE 1: PAPER REPRODUCTION (Cross-Architecture)
+============================================================
+  Train: 2184 | Val: 437 | Test: 4592
+
+  Paper results (Table 9):
+  RF 99.40% | SVM 99.00% | NB 97.50%
+
+  Reproduced results:
+
+  ── Random Forest (Phase 1) ──
+  ACC=99.54%  F1=0.9954  AUC=1.0000
+  Confusion Matrix:
+                 Predicted
+                 Benign       Malicious   
+  Actual Benign    381          0           
+  Actual Malicious 2            54          
+              precision    recall  f1-score   support
+
+      Benign       0.99      1.00      1.00       381
+   Malicious       1.00      0.96      0.98        56
+
+    accuracy                           1.00       437
+   macro avg       1.00      0.98      0.99       437
+weighted avg       1.00      1.00      1.00       437
+
+  5-Fold CV: 99.82% (+/- 0.22%)
+
+  ── SVM (Phase 1) ──
+  ACC=99.08%  F1=0.9907  AUC=0.9996
+  Confusion Matrix:
+                 Predicted
+                 Benign       Malicious   
+  Actual Benign    381          0           
+  Actual Malicious 4            52          
+              precision    recall  f1-score   support
+
+      Benign       0.99      1.00      0.99       381
+   Malicious       1.00      0.93      0.96        56
+
+    accuracy                           0.99       437
+   macro avg       0.99      0.96      0.98       437
+weighted avg       0.99      0.99      0.99       437
+
+  5-Fold CV: 98.86% (+/- 1.07%)
+
+  ── Naive Bayes (Phase 1) ──
+  ACC=49.66%  F1=0.5612  AUC=0.7126
+  Confusion Matrix:
+                 Predicted
+                 Benign       Malicious   
+  Actual Benign    161          220         
+  Actual Malicious 0            56          
+              precision    recall  f1-score   support
+
+      Benign       1.00      0.42      0.59       381
+   Malicious       0.20      1.00      0.34        56
+
+    accuracy                           0.50       437
+   macro avg       0.60      0.71      0.47       437
+weighted avg       0.90      0.50      0.56       437
+
+  5-Fold CV: 50.64% (+/- 1.87%)
+
+  Cross-architecture generalization test (4592 real MIPS malware):
+  RF: detected 0/4592  ACC=0.00%
+  SVM: detected 0/4592  ACC=0.00%
+  NB: detected 196/4592  ACC=4.27%
+
+============================================================
+  PHASE 2: MIPS MALWARE DETECTION (Novel Contribution)
+  Real benign MIPS vs Real malicious MIPS
+============================================================
+  Total: 6495 (1903 benign + 4592 malicious)
+  Train: 5196 | Test: 1299
+  Class balance — Train: 1522 benign / 3674 malicious
+  Class balance — Test : 381 benign / 918 malicious
+
+  SVM/RF/NB with confusion matrix + 5-fold CV:
+
+  ── Random Forest ──
+  ACC=99.71%  F1=0.9971  AUC=0.9999
+  Confusion Matrix:
+                 Predicted
+                 Benign       Malicious   
+  Actual Benign    304          1           
+  Actual Malicious 2            733         
+              precision    recall  f1-score   support
+
+      Benign       0.99      1.00      1.00       305
+   Malicious       1.00      1.00      1.00       735
+
+    accuracy                           1.00      1040
+   macro avg       1.00      1.00      1.00      1040
+weighted avg       1.00      1.00      1.00      1040
+
+  5-Fold CV: 99.56% (+/- 0.16%)
+
+  ── SVM ──
+  ACC=95.58%  F1=0.9566  AUC=0.9964
+  Confusion Matrix:
+                 Predicted
+                 Benign       Malicious   
+  Actual Benign    304          1           
+  Actual Malicious 45           690         
+              precision    recall  f1-score   support
+
+      Benign       0.87      1.00      0.93       305
+   Malicious       1.00      0.94      0.97       735
+
+    accuracy                           0.96      1040
+   macro avg       0.93      0.97      0.95      1040
+weighted avg       0.96      0.96      0.96      1040
+
+  5-Fold CV: 95.69% (+/- 0.74%)
+
+  ── Naive Bayes ──
+  ACC=93.46%  F1=0.9323  AUC=0.8923
+  Confusion Matrix:
+                 Predicted
+                 Benign       Malicious   
+  Actual Benign    241          64          
+  Actual Malicious 4            731         
+              precision    recall  f1-score   support
+
+      Benign       0.98      0.79      0.88       305
+   Malicious       0.92      0.99      0.96       735
+
+    accuracy                           0.93      1040
+   macro avg       0.95      0.89      0.92      1040
+weighted avg       0.94      0.93      0.93      1040
+
+  5-Fold CV: 92.84% (+/- 0.35%)
+
+  BiLSTM with confusion matrix + 5-fold CV:
+  Vocab: 240  SeqLen: 500  Train: 4157  Val: 1039
+    Epoch   5/30  loss=0.0294  val_acc=99.42%
+    Epoch  10/30  loss=0.0094  val_acc=99.52%
+    Epoch  15/30  loss=0.0018  val_acc=99.33%
+    Epoch  20/30  loss=0.0003  val_acc=99.33%
+    Epoch  25/30  loss=0.0002  val_acc=99.33%
+    Epoch  30/30  loss=0.0001  val_acc=99.33%
+
+  ── Bidirectional LSTM ──
+  Best val acc : 99.62%
+  ACC=99.62%  F1=0.9962  AUC=0.9999
+  Confusion Matrix:
+                 Predicted
+                 Benign       Malicious   
+  Actual Benign    379          2           
+  Actual Malicious 3            915         
+              precision    recall  f1-score   support
+
+      Benign       0.99      0.99      0.99       381
+   Malicious       1.00      1.00      1.00       918
+
+    accuracy                           1.00      1299
+   macro avg       0.99      1.00      1.00      1299
+weighted avg       1.00      1.00      1.00      1299
+
+  5-Fold CV for BiLSTM...
+    Fold 1: 99.62%
+Traceback (most recent call last):
+  File "/home/cyberlab/Downloads/caimp_5march2026_lstm_4/caimp_final_v2.py", line 392, in <module>
+    run_lstm_full(X2_tr_docs, X2_te_docs, y2_train, y2_test,
+  File "/home/cyberlab/Downloads/caimp_5march2026_lstm_4/caimp_final_v2.py", line 282, in run_lstm_full
+    loss = f_crit(f_model(Xb), yb)
+  File "/usr/local/lib/python3.9/dist-packages/torch-1.9.1-py3.9-linux-x86_64.egg/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/cyberlab/Downloads/caimp_5march2026_lstm_4/caimp_final_v2.py", line 164, in forward
+    out, _ = self.lstm(self.embedding(x))
+  File "/usr/local/lib/python3.9/dist-packages/torch-1.9.1-py3.9-linux-x86_64.egg/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch-1.9.1-py3.9-linux-x86_64.egg/torch/nn/modules/sparse.py", line 158, in forward
+    return F.embedding(
+  File "/usr/local/lib/python3.9/dist-packages/torch-1.9.1-py3.9-linux-x86_64.egg/torch/nn/functional.py", line 2043, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+IndexError: index out of range in self
+root@cyberlab:/home/cyberlab/Downloads/caimp_5march2026_lstm_4# cd ..
+root@cyberlab:/home/cyberlab/Downloads# cd caimp_7march2026_lstm_5/
+root@cyberlab:/home/cyberlab/Downloads/caimp_7march2026_lstm_5# 
+root@cyberlab:/home/cyberlab/Downloads/caimp_7march2026_lstm_5# cd caimp_7march2026_lstm_5/^C
+root@cyberlab:/home/cyberlab/Downloads/caimp_7march2026_lstm_5# python3 
+caimp_final_v2.py  lstm_cv_only.py    
+root@cyberlab:/home/cyberlab/Downloads/caimp_7march2026_lstm_5# python3 lstm_cv_only.py 
+
+============================================================
+  BILSTM 5-FOLD CROSS VALIDATION — MIPS MALWARE DETECTION
+============================================================
+  Total: 6495 (1903 benign + 4592 malicious)
+
+  Running 5-fold cross-validation...
+    Fold 1: ACC=99.46%  F1=0.9946  AUC=0.9989
+    Fold 2: ACC=99.54%  F1=0.9954  AUC=0.9998
+    Fold 3: ACC=99.54%  F1=0.9954  AUC=0.9986
+    Fold 4: ACC=99.31%  F1=0.9931  AUC=0.9996
+    Fold 5: ACC=99.62%  F1=0.9961  AUC=0.9996
+
+  5-Fold CV Results:
+  ACC : 99.49% (+/- 0.10%)
+  F1  : 0.9949 (+/- 0.0010)
+  AUC : 0.9993 (+/- 0.0005)
+============================================================
+root@cyberlab:/home/cyberlab/Downloads/caimp_7march2026_lstm_5# 
+
+
+-----------
+aimp_7march2026_lstm_5
+9march2026
+
+
+
+Done.
+root@cyberlab:/home/cyberlab/Downloads/caimp_8march2026_cnn_bilstm# python3 caimp_multiarch_cnn_bilstm.py --arch mips --bilstm-epochs 10 --cnn-epochs 10
+
+=================================================================
+  ARCHITECTURE: MIPS
+=================================================================
+  MIPS: 1903 benign + 4592 malicious = 6495 total
+  Train: 5196  |  Test: 1299
+
+  [1/3] Classical Classifiers (RF / SVM / NB)
+  ------------------------------------------------------------
+  RF  : ACC=99.69%  F1=0.9969  AUC=0.9999  CV=99.62% ±0.22%
+  SVM : ACC=96.84%  F1=0.9689  AUC=0.9986  CV=95.69% ±0.44%
+  NB  : ACC=94.07%  F1=0.9392  AUC=0.9058  CV=93.15% ±0.65%
+
+  [2/3] BiLSTM
+  ------------------------------------------------------------
+      Epoch 10/10  loss=0.0119
+  BiLSTM: ACC=99.31%  F1=0.9931  AUC=0.9999
+
+  BiLSTM 5-fold CV...
+      Epoch 10/15  loss=0.0059
+    Fold 1: ACC=99.54%  F1=0.9954  AUC=0.9981
+      Epoch 10/15  loss=0.0119
+    Fold 2: ACC=99.85%  F1=0.9985  AUC=1.0000
+      Epoch 10/15  loss=0.0073
+    Fold 3: ACC=99.46%  F1=0.9946  AUC=0.9994
+      Epoch 10/15  loss=0.0121
+    Fold 4: ACC=99.31%  F1=0.9931  AUC=0.9990
+      Epoch 10/15  loss=0.0161
+    Fold 5: ACC=99.85%  F1=0.9985  AUC=0.9976
+
+  [3/3] CNN-BiLSTM with Local Attention (DeepWare-style)
+  ------------------------------------------------------------
+      Epoch 10/10  loss=0.0097
+  CNN-BiLSTM: ACC=99.69%  F1=0.9969  AUC=0.9988
+
+  CNN-BiLSTM 5-fold CV...
+      Epoch 10/15  loss=0.0101
+    Fold 1: ACC=99.62%  F1=0.9961  AUC=0.9990
+      Epoch 10/15  loss=0.0095
+    Fold 2: ACC=99.85%  F1=0.9985  AUC=1.0000
+      Epoch 10/15  loss=0.0074
+    Fold 3: ACC=99.38%  F1=0.9938  AUC=0.9984
+      Epoch 10/15  loss=0.0079
+    Fold 4: ACC=99.54%  F1=0.9954  AUC=0.9991
+      Epoch 10/15  loss=0.0135
+    Fold 5: ACC=99.15%  F1=0.9915  AUC=0.9999
+
+=================================================================
+  RESULTS SUMMARY — MIPS
+=================================================================
+  Model                 ACC       F1      AUC 5-Fold CV
+  ------------------------------------------------------------
+  RF                 99.69%   0.9969   0.9999  99.62% ±0.22%
+  SVM                96.84%   0.9689   0.9986  95.69% ±0.44%
+  NB                 94.07%   0.9392   0.9058  93.15% ±0.65%
+  BiLSTM             99.31%   0.9931   0.9999  99.60% ±0.21%
+  CNN-BiLSTM-Attn    99.69%   0.9969   0.9988  99.51% ±0.23%
+
+
+  RF Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign               380               1
+  Actual Malicious              3             915
+
+  SVM Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign               381               0
+  Actual Malicious             41             877
+
+  NB Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign               313              68
+  Actual Malicious              9             909
+
+  BiLSTM Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign               380               1
+  Actual Malicious              8             910
+
+  CNN-BiLSTM-Attn Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign               380               1
+  Actual Malicious              3             915
+
+=================================================================
+
+Done.
+root@cyberlab:/home/cyberlab/Downloads/caimp_8march2026_cnn_bilstm# 
+
+
+11march2026
+for intel 
+
+yberlab: 
+root@cyberlab:/home/cyberlab/Downloads/caimp_11march2026_for_intel# python3 caimp_multiarch_cnn_bilstm.py --arch intel --bilstm-epochs 10 --cnn-epochs 10
+
+=================================================================
+  ARCHITECTURE: INTEL
+=================================================================
+  INTEL: 271 benign + 281 malicious = 552 total
+  Train: 441  |  Test: 111
+
+  [1/3] Classical Classifiers (RF / SVM / NB)
+  ------------------------------------------------------------
+
+
+
+
+
+
+
+

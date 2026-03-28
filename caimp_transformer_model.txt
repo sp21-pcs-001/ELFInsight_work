@@ -1,0 +1,37 @@
+root@cyberlab:/media/cyberlab/206CB0116CAFDFB07/CAIMP-2nd/Training Opcode sequence Transformation Model# find . -name "*.true" | wc -l
+8 
+root@cyberlab:/media/cyberlab/206CB0116CAFDFB07/CAIMP-2nd/Training Opcode sequence Transformation Model# find . -name "*.true" 
+./data/mono/all.en (another copy).true
+./data/mono/all.en (copy).true
+./data/mono/all.en.true
+./data/mono/all.fr (another copy).true
+./data/mono/all.fr (copy).true
+./data/mono/all.fr.true
+./data/mono/all.intel.true
+./data/mono/all.mips.true
+root@cyberlab:/media/cyberlab/206CB0116CAFDFB07/CAIMP-2nd/Training Opcode sequence Transformation Model# md5sum ./data/mono/all.en.true
+b8acd8c5c5782f7309656719e48505aa  ./data/mono/all.en.true
+root@cyberlab:/media/cyberlab/206CB0116CAFDFB07/CAIMP-2nd/Training Opcode sequence Transformation Model# md5sum ./data/mono/all.intel.true
+a9d009506479b2814e05f1925dd91b9b  ./data/mono/all.intel.true
+root@cyberlab:/media/cyberlab/206CB0116CAFDFB07/CAIMP-2nd/Training Opcode sequence Transformation Model# md5sum ./data/mono/all.fr.true
+a9d009506479b2814e05f1925dd91b9b  ./data/mono/all.fr.true
+root@cyberlab:/media/cyberlab/206CB0116CAFDFB07/CAIMP-2nd/Training Opcode sequence Transformation Model# md5sum ./data/mono/all.mips.true
+b8acd8c5c5782f7309656719e48505aa  ./data/mono/all.mips.true
+root@cyberlab:/media/cyberlab/206CB0116CAFDFB07/CAIMP-2nd/Training Opcode sequence Transformation Model# find . -name "*.vec" 
+./data/embeddings/cc.en.300.vec
+./data/embeddings/cc.fr.300.vec
+./MUSE/data/vectors/wiki.multi.en.vec
+./MUSE/data/vectors/wiki.multi.fr.vec
+root@cyberlab:/media/cyberlab/206CB0116CAFDFB07/CAIMP-2nd/Training Opcode sequence Transformation Model# find . -name "*.pkl" 
+./MUSE/alignments/wiki-released-enfr-identical_char/params.pkl
+./MUSE/dumped/debug/knbeybqcje/params.pkl
+./MUSE/dumped/debug/ln1z0m64bh/params.pkl
+./MUSE/dumped/debug/mt6noasq66/params.pkl
+./MUSE/dumped/debug/nxwuf40dok/params.pkl
+./MUSE/dumped/debug/r89m5xk077/params.pkl
+root@cyberlab:/media/cyberlab/206CB0116CAFDFB07/CAIMP-2nd/Training Opcode sequence Transformation Model# 
+
+head -c 500 "/media/cyberlab/206CB0116CAFDFB07/CAIMP-2nd/Training Opcode sequence Transformation Model/data/mono/all.intel.true"
+call push mov push push push mov sub mov movzx mov lea mov mov mov test jz mov lea lea lea mov mov lea nop lea mov mov mov out mov mov shr and out add cmp jnz mov mov mov mov add pop pop pop pop retn call push mov push push mov lea in mov lea in mov mov movzx movzx shl or mov mov pop pop pop retn jmp call push mov push mov mov test jz mov call mov call pop pop retn call push mov push push mov mov push mov mov mov call test jz mov mov lea mov out mov lea shr out mov mov mov pop pop pop pop retn mroot@cyberlab:/media/cyberlab/206CB0116CAFDFB07/CAIMP-2nd/Training Opcode sequence Transformation Model# 
+
+

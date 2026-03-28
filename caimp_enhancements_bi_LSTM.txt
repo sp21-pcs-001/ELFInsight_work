@@ -1,0 +1,108 @@
+root@cyberlab:/home/cyberlab/Downloads/caimp_4march2026_lstm_3# ls
+caimp_final_pipeline.py
+root@cyberlab:/home/cyberlab/Downloads/caimp_4march2026_lstm_3# python3 caimp_final_pipeline.py 
+
+============================================================
+  CAIMP COMPLETE PIPELINE
+  Phase 1: Paper Reproduction (cross-architecture)
+  Phase 2: MIPS Malware Detection + BiLSTM contribution
+============================================================
+
+[SETUP] Loading data...
+  Loading phrase table...
+  Loaded 635 Intel->MIPS mappings
+  Benign MIPS     : 1903
+  Malicious Intel : 281
+  Malicious MIPS  : 4592
+
+  Transforming malicious Intel -> MIPS...
+  Transformation coverage: 87.2%
+
+============================================================
+  PHASE 1: PAPER REPRODUCTION (Cross-Architecture)
+  Train: Benign MIPS + Transformed Malicious Intel
+  Test : Real Malicious MIPS (cross-architecture)
+============================================================
+
+  Train: 2184 | Val split: 437 | Test: 4592
+
+  Paper results (Table 9 MIPS-crossed):
+  RF  (paper)                    ACC=99.40%   F1=0.9930
+  SVM (paper)                    ACC=99.00%   F1=0.9890
+  NB  (paper)                    ACC=97.50%   F1=0.9730
+
+  Reproduced results (80/20 split):
+  Random Forest                  ACC=99.54%   F1=0.9954   AUC=1.0000
+  SVM                            ACC=99.08%   F1=0.9907   AUC=0.9996
+  Naive Bayes                    ACC=49.66%   F1=0.5612   AUC=0.7126
+
+  Cross-architecture generalization test:
+  (How well do trained models detect REAL MIPS malware?)
+  RF     detected    0/4592 malicious MIPS  ACC=0.00%
+  SVM    detected    0/4592 malicious MIPS  ACC=0.00%
+  NB     detected  196/4592 malicious MIPS  ACC=4.27%
+
+  Finding: Phrase table transformation achieves high
+  accuracy in controlled setting but limited cross-arch
+  generalization to real MIPS malware patterns.
+
+============================================================
+  PHASE 2: MIPS MALWARE DETECTION (Novel Contribution)
+  Train: Benign MIPS + Malicious MIPS (80% split)
+  Test : Held-out Malicious MIPS (20%)
+  Models: RF, SVM, NB, BiLSTM
+============================================================
+
+  Total MIPS: 6495 (1903 benign + 4592 malicious)
+  Train: 5196 | Test: 1299
+  Train class balance: 1522 benign / 3674 malicious
+  Test  class balance: 381 benign / 918 malicious
+
+  SVM/RF/NB results (80/20 internal split):
+  Random Forest                  ACC=99.71%   F1=0.9971   AUC=0.9999
+  SVM                            ACC=95.58%   F1=0.9566   AUC=0.9964
+  Naive Bayes                    ACC=93.46%   F1=0.9323   AUC=0.8923
+
+  Final test results (held-out 20%):
+  RF                             ACC=99.77%  F1=0.9977  AUC=1.0000
+  SVM                            ACC=95.30%  F1=0.9540  AUC=0.9967
+  NB                             ACC=94.23%  F1=0.9408  AUC=0.9084
+
+  BiLSTM (novel contribution - sequential opcode patterns):
+  Vocab size: 240  |  Seq len: 500  |  Train: 4157  |  Val: 1039
+    Epoch   5/30  loss=0.0294  val_acc=99.42%
+    Epoch  10/30  loss=0.0094  val_acc=99.52%
+    Epoch  15/30  loss=0.0018  val_acc=99.33%
+    Epoch  20/30  loss=0.0003  val_acc=99.33%
+    Epoch  25/30  loss=0.0002  val_acc=99.33%
+    Epoch  30/30  loss=0.0001  val_acc=99.33%
+
+  BiLSTM vs SVM/RF/NB on MIPS Malware Detection
+  BiLSTM (val)                   ACC=99.62%  F1=0.9962
+  BiLSTM (test)                  ACC=99.62%  F1=0.9962  AUC=0.9999
+              precision    recall  f1-score   support
+
+      Benign       0.99      0.99      0.99       381
+   Malicious       1.00      1.00      1.00       918
+
+    accuracy                           1.00      1299
+   macro avg       0.99      1.00      1.00      1299
+weighted avg       1.00      1.00      1.00      1299
+
+
+============================================================
+  SUMMARY
+============================================================
+  Phase 1: CAIMP paper reproduction
+    RF  99.54% (paper 99.40%) BEATS paper
+    SVM 99.08% (paper 99.00%) BEATS paper
+    Finding: Cross-arch generalization limited
+
+  Phase 2: Novel contribution - MIPS malware detection
+    RF/SVM/NB/BiLSTM on real MIPS benign + malicious
+    BiLSTM captures sequential opcode patterns
+    Paper suggested deep learning as future work
+============================================================
+root@cyberlab:/home/cyberlab/Downloads/caimp_4march2026_lstm_3# 
+
+
