@@ -1,0 +1,441 @@
+sftp -oPort=8022 -i /path/to/your/private_key maluser@iotpot.bu7sh11.mydns.jp
+
+sftp -oPort=8022 -i /path/to/your/private_key maluser@iotpot.bu7sh11.mydns.jp
+sftp -oPort=8022 -i /path/to/your/private_key maluser@iotpot.bu7sh11.mydns.jp
+
+
+
+password for key is naveed
+
+root@firmfuzz-vm:/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel# python3 caimp_multiarch_cnn_bilstm.py --arch intel --bilstm-epochs 30 --cnn-epochs 30
+
+  [WARN] PyTorch not found — deep learning models will be skipped.
+
+=================================================================
+  ARCHITECTURE: INTEL
+=================================================================
+  [WARN] Directory not found: /home/firmfuzz/Downloads/24april2026/IoTMalware-master/IoT_Opcodesmalicious
+  INTEL: 271 benign + 0 malicious = 271 total
+  Train: 216  |  Test: 55
+
+  [1/3] Classical Classifiers (RF / SVM / NB)
+  ------------------------------------------------------------
+^CTraceback (most recent call last):
+  File "/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel/caimp_multiarch_cnn_bilstm.py", line 566, in <module>
+    result = run_arch(arch)
+             ^^^^^^^^^^^^^^
+  File "/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel/caimp_multiarch_cnn_bilstm.py", line 415, in run_arch
+    classical_results = run_classical(train_docs, test_docs, y_train, y_test, docs, labels)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel/caimp_multiarch_cnn_bilstm.py", line 341, in run_classical
+    X_train_bow, X_test_bow = extract_bow_features(train_docs, test_docs)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel/caimp_multiarch_cnn_bilstm.py", line 106, in extract_bow_features
+    X_test  = vec.transform(test_docs).toarray()
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sklearn/feature_extraction/text.py", line 1422, in transform
+    _, X = self._count_vocab(raw_documents, fixed_vocab=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sklearn/feature_extraction/text.py", line 1264, in _count_vocab
+    for feature in analyze(doc):
+                   ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sklearn/feature_extraction/text.py", line 111, in _analyze
+    doc = ngrams(doc)
+          ^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sklearn/feature_extraction/text.py", line 264, in _word_ngrams
+    tokens_append(space_join(original_tokens[i : i + n]))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+root@firmfuzz-vm:/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel# ^C
+root@firmfuzz-vm:/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel# apt install pythorch
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+E: Unable to locate package pythorch
+root@firmfuzz-vm:/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel# vim caimp_multiarch_cnn_bilstm.py 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel# 
+root@firmfuzz-vm:/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel# python3 caimp_multiarch_cnn_bilstm.py --arch intel --bilstm-epochs 30 --cnn-epochs 30
+  [WARN] PyTorch not found — deep learning models will be skipped.
+
+=================================================================
+  ARCHITECTURE: INTEL
+=================================================================
+  INTEL: 271 benign + 281 malicious = 552 total
+  Train: 441  |  Test: 111
+
+  [1/3] Classical Classifiers (RF / SVM / NB)
+  ------------------------------------------------------------
+  RF  : ACC=99.10%  F1=0.9910  AUC=0.9932  CV=98.92% ±1.44%
+  SVM : ACC=97.30%  F1=0.9730  AUC=0.9886  CV=97.28% ±0.99%
+  NB  : ACC=81.08%  F1=0.8027  AUC=0.8056  CV=80.98% ±6.48%
+
+  [2/3] BiLSTM
+  ------------------------------------------------------------
+
+  [3/3] CNN-BiLSTM with Local Attention (DeepWare-style)
+  ------------------------------------------------------------
+
+=================================================================
+  RESULTS SUMMARY — INTEL
+=================================================================
+  Model                 ACC       F1      AUC 5-Fold CV
+  ------------------------------------------------------------
+  RF                 99.10%   0.9910   0.9932  98.92% ±1.44%
+  SVM                97.30%   0.9730   0.9886  97.28% ±0.99%
+  NB                 81.08%   0.8027   0.8056  80.98% ±6.48%
+
+
+  RF Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign                54               0
+  Actual Malicious              1              56
+
+  SVM Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign                54               0
+  Actual Malicious              3              54
+
+  NB Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign                33              21
+  Actual Malicious              0              57
+
+=================================================================
+
+Done.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel# python3 caimp_multiarch_cnn_bilstm.py --arch intel --bilstm-epochs 30 --cnn-epochs 30
+  [WARN] PyTorch not found — deep learning models will be skipped.
+
+=================================================================
+  ARCHITECTURE: INTEL
+=================================================================
+  INTEL: 271 benign + 281 malicious = 552 total
+  Train: 441  |  Test: 111
+
+  [1/3] Classical Classifiers (RF / SVM / NB)
+  ------------------------------------------------------------
+  RF  : ACC=99.10%  F1=0.9910  AUC=0.9932  CV=98.92% ±1.44%
+  SVM : ACC=97.30%  F1=0.9730  AUC=0.9886  CV=97.28% ±0.99%
+^CTraceback (most recent call last):
+  File "/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel/caimp_multiarch_cnn_bilstm.py", line 566, in <module>
+    result = run_arch(arch)
+             ^^^^^^^^^^^^^^
+  File "/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel/caimp_multiarch_cnn_bilstm.py", line 415, in run_arch
+    classical_results = run_classical(train_docs, test_docs, y_train, y_test, docs, labels)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel/caimp_multiarch_cnn_bilstm.py", line 362, in run_classical
+    X_all_bow, _ = extract_bow_features(all_docs, all_docs[:1])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel/caimp_multiarch_cnn_bilstm.py", line 105, in extract_bow_features
+    X_train = vec.fit_transform(train_docs).toarray()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sklearn/base.py", line 1365, in wrapper
+^C^C^C  File "/usr/local/lib/python3.11/site-packages/sklearn/feature_extraction/text.py", line 1377, in fit_transform
+^C  File "/usr/local/lib/python3.11/site-packages/sklearn/feature_extraction/text.py", line 1264, in _count_vocab
+    for feature in analyze(doc):
+                   ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sklearn/feature_extraction/text.py", line 106, in _analyze
+    doc = tokenizer(doc)
+          ^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+root@firmfuzz-vm:/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel# python3 caimp_multiarch_cnn_bilstm.py --arch intel --bilstm-epochs 30 --cnn-epochs 30
+
+=================================================================
+  ARCHITECTURE: INTEL
+=================================================================
+  INTEL: 271 benign + 281 malicious = 552 total
+  Train: 441  |  Test: 111
+
+  [1/3] Classical Classifiers (RF / SVM / NB)
+  ------------------------------------------------------------
+  RF  : ACC=99.10%  F1=0.9910  AUC=0.9932  CV=98.92% ±1.44%
+  SVM : ACC=97.30%  F1=0.9730  AUC=0.9886  CV=97.28% ±0.99%
+  NB  : ACC=81.08%  F1=0.8027  AUC=0.8056  CV=80.98% ±6.48%
+
+  [2/3] BiLSTM
+  ------------------------------------------------------------
+      Epoch 10/30  loss=0.0798
+      Epoch 20/30  loss=0.0339
+      Epoch 30/30  loss=0.0225
+  BiLSTM: ACC=98.20%  F1=0.9820  AUC=0.9870
+
+  BiLSTM 5-fold CV...
+      Epoch 10/15  loss=0.1225
+    Fold 1: ACC=99.10%  F1=0.9910  AUC=0.9825
+      Epoch 10/15  loss=0.0543
+    Fold 2: ACC=95.50%  F1=0.9549  AUC=0.9685
+      Epoch 10/15  loss=0.0879
+    Fold 3: ACC=100.00%  F1=1.0000  AUC=1.0000
+      Epoch 10/15  loss=0.0665
+    Fold 4: ACC=97.27%  F1=0.9727  AUC=0.9726
+      Epoch 10/15  loss=0.0703
+    Fold 5: ACC=99.09%  F1=0.9909  AUC=1.0000
+
+  [3/3] CNN-BiLSTM with Local Attention (DeepWare-style)
+  ------------------------------------------------------------
+      Epoch 10/30  loss=0.0705
+      Epoch 20/30  loss=0.0451
+      Epoch 30/30  loss=0.0322
+  CNN-BiLSTM: ACC=98.20%  F1=0.9820  AUC=0.9851
+
+  CNN-BiLSTM 5-fold CV...
+      Epoch 10/15  loss=0.0537
+    Fold 1: ACC=98.20%  F1=0.9820  AUC=0.9838
+      Epoch 10/15  loss=0.0523
+    Fold 2: ACC=94.59%  F1=0.9459  AUC=0.9695
+      Epoch 10/15  loss=0.0703
+    Fold 3: ACC=99.09%  F1=0.9909  AUC=0.9997
+      Epoch 10/15  loss=0.0840
+    Fold 4: ACC=97.27%  F1=0.9727  AUC=0.9821
+      Epoch 10/15  loss=0.0703
+    Fold 5: ACC=100.00%  F1=1.0000  AUC=1.0000
+
+=================================================================
+  RESULTS SUMMARY — INTEL
+=================================================================
+  Model                 ACC       F1      AUC 5-Fold CV
+  ------------------------------------------------------------
+  RF                 99.10%   0.9910   0.9932  98.92% ±1.44%
+  SVM                97.30%   0.9730   0.9886  97.28% ±0.99%
+  NB                 81.08%   0.8027   0.8056  80.98% ±6.48%
+  BiLSTM             98.20%   0.9820   0.9870  98.19% ±1.61%
+  CNN-BiLSTM-Attn    98.20%   0.9820   0.9851  97.83% ±1.86%
+
+
+  RF Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign                54               0
+  Actual Malicious              1              56
+
+  SVM Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign                54               0
+  Actual Malicious              3              54
+
+  NB Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign                33              21
+  Actual Malicious              0              57
+
+  BiLSTM Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign                54               0
+  Actual Malicious              2              55
+
+  CNN-BiLSTM-Attn Confusion Matrix:
+                       Pred Benign  Pred Malicious
+  Actual Benign                54               0
+  Actual Malicious              2              55
+
+=================================================================
+
+Done.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel# 
+----------------------------
+
+/python3.11/subprocess.py", line 671, in getstatusoutput
+    data = check_output(cmd, shell=True, text=True, stderr=STDOUT,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/subprocess.py", line 1196, in communicate
+    stdout = self.stdout.read()
+             ^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# python calling_ida_R_elf_arm_ben.py 
+
+
+
+
+
+
+
+firmfuzz@firmfuzz-vm:~/Downloads/extracted_arm_files_benign$ sudo rm 658b1923f784caddab4937ce1dfcd11a.asmplus
+rm: cannot remove '658b1923f784caddab4937ce1dfcd11a.asmplus': No such file or directory
+firmfuzz@firmfuzz-vm:~/Downloads/extracted_arm_files_benign$ sudo rm 658b1923f784caddab4937ce1dfcd11a.asm
+firmfuzz@firmfuzz-vm:~/Downloads/extracted_arm_files_benign$ 
+
+check this file, i wrongly deleted the arm file
+--------
+firmfuzz@firmfuzz-vm:~/Downloads/extracted_arm_files_benign$ du -h
+8.8G	.
+firmfuzz@firmfuzz-vm:~/Downloads/extracted_arm_files_benign$ find . -name "*.asmplus" -mmin +15 -delete
+
+
+
+
+
+
+Done.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel# 
+----------------------------
+
+/python3.11/subprocess.py", line 671, in getstatusoutput
+    data = check_output(cmd, shell=True, text=True, stderr=STDOUT,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/subprocess.py", line 1196, in communicate
+    stdout = self.stdout.read()
+             ^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+
+
+
+
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# python calling_ida_R_elf_arm_ben.py 
+
+
+
+===============================================================
+
+Done.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/24april2026/caimp_11march2026_for_intel# 
+------------------------------
+
+Now i am doingthis for rht ARM, 
+benign collected and malicous as well 
+
+ 
+asm generated for the benign
+- ------------------------
+
+root@firmfuzz-vm:/home/firmfuzz/Downloads/ASM_ARM_benign_2may2026# ls -l | wc -l
+5921
+root@firmfuzz-vm:/home/firmfuzz/Downloads/ASM_ARM_benign_2may2026# du -h
+43G	.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/ASM_ARM_benign_2may2026#                                        
+ 6days for this 
+ 
+  
+  
+  
+  find . -type f ! -name "*.*" -exec mv {} {}.elf \;
+  
+  
+  
+  ds/organized_dataset_mal_iotpot/ARM# ls -l *.elf | wc -l
+6410
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# 
+
+
+
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# find . -name "*.asmplus" -mmin +15 -delete
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# ls -l *.asmplus | wc -l
+6
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# du -h
+594M	.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# ls -l *.elf | wc -l
+6410
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# ls -l *.asmplus | wc -l
+20
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# find . -name "*.asmplus" -mmin +10 -delete
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# ls -l *.asmplus | wc -l
+21
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# find . -name "*.asmplus" -mmin +5 -delete
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# ls -l *.asmplus | wc -l
+20
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# ls -l *.asm | wc -l
+83
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# ls -l *.asmplus | wc -l
+80
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# find . -name "*.asmplus" -mmin +5 -delete
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# ls -l *.asmplus | wc -l
+27
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# find . -name "*.til*" -mmin +5 -delete
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# find . -name "*.id*" -mmin +5 -delete
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# find . -name "*.til*" -mmin +5 -delete
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# find . -name "*.nam*" -mmin +5 -delete
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# du -h
+747M	.
+root@firmfuzz-vm:/home/firmfuzz/Downloads/organized_dataset_mal_iotpot/ARM# 
+
+
+
+
+
+import os
+
+asm_dir = "/home/firmfuzz/Downloads/ASM_ARM_benign_2may2026/"
+out_dir  = "/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/opcode_arm_8may/"
+os.makedirs(out_dir, exist_ok=True)
+
+for fname in os.listdir(asm_dir):
+    if not fname.endswith(".asm"):
+        continue
+    opcodes = []
+    with open(os.path.join(asm_dir, fname), 'r', errors='ignore') as f:
+        for line in f:
+            parts = line.strip().split()
+            if parts:
+                opcodes.append(parts[0].lower())
+    if opcodes:
+        with open(os.path.join(out_dir, fname.replace('.asm', '.txt')), 'w') as out:
+            out.write(' '.join(opcodes))
+            
+            db634f3325381c63fb96a232b64d382f80c0d2a96.elf"
+------------------++++++++++++-
+Full path is: <DirEntry '9564fd5b30136a9d3b1e4a7db634f3325381c63fb96a232b64d382f80c0d2a96.elf'> and just the name is: 9564fd5b30136a9d3b1e4a7db634f3325381c63fb96a232b64d382f80c0d2a96.elf
+1
+-----------------------
+
+ Raw features of 6410 file are extracted.
+-----IGNORE------------------
+Full path is: <DirEntry '8569a390632c3b32ac656a0729053a0b.asm'> and just the name is: 8569a390632c3b32ac656a0729053a0b.asm
+-----IGNORE------------------
+Full path is: <DirEntry '23429ee2d716cea34ad672726b775fb03e33193b40fcc5efcf00a5dc053e0d4d.nam'> and just the name is: 23429ee2d716cea34ad672726b775fb03e33193b40fcc5efcf00a5dc053e0d4d.nam
+-----IGNORE------------------
+Full path is: <DirEntry '8b6cc6ae9b817a53f8df2a9ad7f26374741a15f60cd18673a0f2d4925dca8133.id0'> and just the name is: 8b6cc6ae9b817a53f8df2a9ad7f26374741a15f60cd18673a0f2d4925dca8133.id0
+-----IGNORE------------------
+Full path is: <DirEntry '48bf3004e073ac2894f589815e9add01.asm'> and just the name is: 48bf3004e073ac2894f589815e9add01.asm
+-----IGNORE------------------
+Full path is: <DirEntry '4b4fc931b1609ac0cb4f5564eaa807fe.asm'> and just the name is: 4b4fc931b1609ac0cb4f5564eaa807fe.asm
+6410 files scanned successfully.
+
+real	1495m24.925s
+user	600m22.227s
+sys	276m25.683s
+root@firmfuzz-vm:/home/firmfuzz/Downloads/idascr# 
+-----------------------------------------------------
+
+
+
+  [PROCESSED] ff607f3273353d47a371353795c43793.asm → ff607f3273353d47a371353795c43793.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ff778d63075725e40cb26cc1405e27fb.asm → ff778d63075725e40cb26cc1405e27fb.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ff8167bb378960b7401d5df78454b882.asm → ff8167bb378960b7401d5df78454b882.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ff82da0019e2fc73c81ed62e9dd15695.asm → ff82da0019e2fc73c81ed62e9dd15695.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ff8ab750c9a7ba1c314ee691bd0582fc.asm → ff8ab750c9a7ba1c314ee691bd0582fc.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ff8b4cee6a902ab6caf037f241d2414c.asm → ff8b4cee6a902ab6caf037f241d2414c.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ff8bdddd7f7ba83d4a9867ae7c89df94.asm → ff8bdddd7f7ba83d4a9867ae7c89df94.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ff96b37aaba457c17bc804cac8ebb7b8.asm → ff96b37aaba457c17bc804cac8ebb7b8.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ff99d46be0f010bc5ec2dac3c896ae33.asm → ff99d46be0f010bc5ec2dac3c896ae33.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ff9c5454bc2447a3348a72cfa117c138.asm → ff9c5454bc2447a3348a72cfa117c138.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ffa05e9ae173aa93b82c200663e6b477.asm → ffa05e9ae173aa93b82c200663e6b477.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  Progress: 6400 new, 5 low, 0 already done
+  [PROCESSED] ffa10038353177481db7ade52635ff24.asm → ffa10038353177481db7ade52635ff24.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ffa49973543caa1988ab4001c731c57d.asm → ffa49973543caa1988ab4001c731c57d.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] ffda944c8314e831cf3f5a4cd9f68150.asm → ffda944c8314e831cf3f5a4cd9f68150.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] fff4f09836ebdb221c38c4eb86e7605e.asm → fff4f09836ebdb221c38c4eb86e7605e.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+  [PROCESSED] fff9d19f00e8c83544e1b26fefd8f5b9.asm → fff9d19f00e8c83544e1b26fefd8f5b9.txt (moved to /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/)
+
+--- Summary ---
+New opcode files created: 6405
+Files already processed (moved to DONE): 0
+Files moved to TEMP (opcodes < 10): 5
+Output directory: /home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction/opcode_arm_malicous_10may26/
+DONE directory: /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_DONE/
+TEMP directory: /home/firmfuzz/Downloads/ASM_ARM_malicious_10may2026_TEMP/
+root@firmfuzz-vm:/home/firmfuzz/Downloads/caimp/caimp-main/Opcode Extraction# 
+
