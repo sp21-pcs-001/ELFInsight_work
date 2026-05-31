@@ -1,0 +1,700 @@
+Basic Block Addr: 0x10478
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Add32;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: $a
+
+Basic Block Addr: 0x103f8
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: call_weak_fn
+
+Basic Block Addr: 0x104a8
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_Add32;Iop_CmpEQ32;Iop_Not1
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 2
+    Betweenness: 0.001773
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x104cc
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_CmpEQ32;Iop_Not1
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 2
+    Betweenness: 0.003546
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x104f8
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_Add32;Iop_And32;Iop_CmpEQ32;Iop_Not1;Iop_Sar32;Iop_Shr32;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.001330
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10530
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_8Uto32;Iop_Add32;Iop_CmpNE32;Iop_Not1;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10558
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x1055c
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Add32;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.033245
+
+    ++++++ API Features ++++++
+    APIs: call_0x1043c
+
+Basic Block Addr: 0x106a0
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Add32;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 0
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10418
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.011968
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x104c0
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.001773
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x104dc
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_CmpEQ32;Iop_Not1
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 2
+    Betweenness: 0.002660
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10514
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_CmpEQ32;Iop_Not1
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.001773
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10544
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.002216
+
+    ++++++ API Features ++++++
+    APIs: deregister_tm_clones
+
+Basic Block Addr: 0x1043c
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.042553
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10000c
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.023050
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10454
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.001330
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x20104c
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 0
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x104e8
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.001773
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10520
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.001330
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x100018
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.050975
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10548
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Add32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 0
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10400
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Add32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 0
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10584
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.058511
+
+    ++++++ API Features ++++++
+    APIs: call_0x10448
+
+Basic Block Addr: 0x10448
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.065160
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10001c
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.070922
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x1058c
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Add32;Iop_Shl32;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.075798
+
+    ++++++ API Features ++++++
+    APIs: call_0x10424
+
+Basic Block Addr: 0x10424
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.101064
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x100010
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 2
+    Betweenness: 0.102837
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x105b4
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_CmpEQ32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 2
+    Betweenness: 0.011525
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x105c8
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Add32;Iop_Shl32;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.015071
+
+    ++++++ API Features ++++++
+    APIs: call_0x10424
+
+Basic Block Addr: 0x105e8
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_CmpEQ32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 2
+    Betweenness: 0.086436
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x105fc
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_CmpEQ32;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 2
+    Betweenness: 0.082890
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10658
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_CmpEQ32;Iop_Sub32;Iop_Xor32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 2
+    Betweenness: 0.042553
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10608
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.039894
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10678
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Add32;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 0
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10674
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.022163
+
+    ++++++ API Features ++++++
+    APIs: call_0x10430
+
+Basic Block Addr: 0x1064c
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_CmpLT32U;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 2
+    Betweenness: 0.047429
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10430
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.011525
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10614
+    ++++++ Instruction Features ++++++
+    Insts: Iop_8Uto32;Iop_Add32;Iop_And32;Iop_Sub32;Iop_Xor32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.027926
+
+    ++++++ API Features ++++++
+    APIs: call_0x10460
+
+Basic Block Addr: 0x100014
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 0
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10460
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.021720
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x100020
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.015514
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10404
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Add32;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x1046c
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.000443
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x100024
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 0
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: call_0xfec48253
+
+Basic Block Addr: 0x104a0
+    ++++++ Instruction Features ++++++
+    Insts: 
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: call_0x1046c
+
+Basic Block Addr: 0x105c0
+    ++++++ Instruction Features ++++++
+    Insts: Iop_Add32;Iop_Shl32;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: call_0x10424
+
+Basic Block Addr: 0x105f4
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_CmpEQ32;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.000000
+
+    ++++++ API Features ++++++
+    APIs: 
+
+Basic Block Addr: 0x10640
+    ++++++ Instruction Features ++++++
+    Insts: Iop_1Uto32;Iop_32to1;Iop_Add32;Iop_CmpLT32U;Iop_Sub32
+
+    ++++++ Statement Features ++++++
+    Statements: Ist_Exit;Ist_IMark;Ist_Put;Ist_Store;Ist_WrTmp
+
+    ++++++ Structural Features ++++++
+    Num offspring: 1
+    Betweenness: 0.009309
+
+    ++++++ API Features ++++++
+    APIs: 
+
