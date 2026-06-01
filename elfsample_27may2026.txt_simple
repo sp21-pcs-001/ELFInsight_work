@@ -1,0 +1,17 @@
+python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_26may2026.h5" --normalize "normalize_elf_benign_26may2026.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse"
+
+
+
+same lik old time 
+ValueError: could not broadcast input array from shape (412,20) into shape (412,18)
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+
+---
+i fixed it by generating again .npy file of raw of old sample by disabling 2 x features from it and then generated it . now i am temporarily stoping this step which is not correct and test the old generated 
+.npy file of raw features of binary and just using new annotation file . 
+
+
+python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_roc"
+
+---------------
+

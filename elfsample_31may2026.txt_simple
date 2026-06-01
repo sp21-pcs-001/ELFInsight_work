@@ -1,0 +1,258 @@
+python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_26may2026.h5" --normalize "normalize_elf_benign_26may2026.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse"
+
+
+
+same lik old time 
+ValueError: could not broadcast input array from shape (412,20) into shape (412,18)
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex/autoencoder# 
+
+---
+i fixed it by generating again .npy file of raw of old sample by disabling 2 x features from it and then generated it . now i am temporarily stoping this step which is not correct and test the old generated 
+.npy file of raw features of binary and just using new annotation file . 
+
+
+python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_roc"
+
+---------------
+31may2026
+from last few days, i tried to fix the issue of the roc.py in the grader on the new mse generated file
+new file generated of the same shape and when tried to runt he roc on ti . got error on the y label etc. then i tried different function.txt/annotation.txt but no success. i thouhgt address issue 
+but then using script i check int he .npy file that no address is found in it even it was found in the old orig/ custo idaprof scripts. 
+-----------------
+now i have an improved version fo the raw to .npy and checking it.
+i have raw2ablation scipt has well which i used to currently to disable structual feature yet. 
+
+------------
+
+now i have converted the beingin ablation binary using new script but i did not train the model yet, and just converted the sample binary from non-address to address and used in the sample for testing purpose of bofish (in the rbot) 
+-------with just new .npy of the smapel
+but ignore this, now training new model 
+-------------------------
+
+this is new result of bofishy. with 3 ephocs
+--------------------------------------------------------
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_26may2026.h5" --normalize "normalize_elf_benign_26may2026.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse"
+2026-05-31 17:00:47.163602: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2026-05-31 17:01:09.180227: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-05-31 17:02:23.262290: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2026-05-31 17:03:04.861358: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+Took 59.85484838485718 seconds to load model.
+1/1 ━━━━━━━━━━━━━━━━━━━━ 23s 23s/step
+
+On average took 31.16179871559143 seconds to retrieve & save outputs
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# cd -
+bash: cd: OLDPWD not set
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# cd ../grader/
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_roc"
+
+/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy
+Number of RoIs (basic blocks): 20000
+ROC Curve. AUC: 0.6363636363636364
+FPR TRP Threshold
+0.0 0.0 inf
+0.09090909090909091 0.0 0.13399430366329865
+0.36363636363636365 0.0 0.12873962488224372
+0.36363636363636365 1.0 0.1284906850416807
+1.0 1.0 0.01691540497072454
+
+Threshold - TPR at 80% (FPR 36.36363636363637%): 0.1284906850416807
+Total: 12 | TP: 1 | FP: 4 | FN: 0 | TN: 7
+TPR: 100.0% | FPR: 36.36363636363637%
+TP: Function Address: 0x1055c  Score: 0.1284906850416807  Name: main
+FP: Function Address: 0x10478  Score: 0.13320803575554663
+FP: Function Address: 0x103f8  Score: 0.13399430366329865
+FP: Function Address: 0x10558  Score: 0.12873962488224372
+FP: Function Address: 0x106a0  Score: 0.13245340140501144
+
+Threshold - FPR at 5% (TPR 0.0%): 0.13399430366329865
+Total: 12 | TP: 0 | FP: 1 | FN: 1 | TN: 10
+TPR: 0.0% | FPR: 9.090909090909092%
+FP: Function Address: 0x103f8  Score: 0.13399430366329865
+FN: Function Address: 0x1055c  Score: 0.1284906850416807  Name: main
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# 
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# 
+
+
+---------
+
+~/Documents/28may2026/15nov2025_improvded_extraction_malware/ablation_bofishy$ python3 raw_2_ablation.py --input-dir . --output-dir output/ --mode no_structural --verbose
+[+] Found 1 raw.txt files
+[+] Ablation mode: no_structural
+[+] Output directory: output/
+
+[1/1] Processed: bofishy_output.elf_raw.txt
+
+[✓] DONE! Modified 1 files
+[✓] Output: output/
+firmfuzz@firmfuzz-vm:~/Documents/28may2026/15nov2025_improvded_extraction_malware/ablation_bofishy$ 
+
+
+now removed the no structural fromt eh sample 
+/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_26may2026.h5" --normalize "normalize_elf_benign_26may2026.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse"
+
+Took 48.08578896522522 seconds to load model.
+1/1 ━━━━━━━━━━━━━━━━━━━━ 18s 18s/step
+
+On average took 19.54893708229065 seconds to retrieve & save outputs
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# cd -
+/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_roc"
+/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy
+Number of RoIs (basic blocks): 20000
+ROC Curve. AUC: 0.6363636363636364
+FPR TRP Threshold
+0.0 0.0 inf
+0.09090909090909091 0.0 0.13582098566672163
+0.36363636363636365 0.0 0.120637876390911
+0.36363636363636365 1.0 0.11247741839333535
+1.0 1.0 0.018645063348336145
+
+Threshold - TPR at 80% (FPR 36.36363636363637%): 0.11247741839333535
+Total: 12 | TP: 1 | FP: 4 | FN: 0 | TN: 7
+TPR: 100.0% | FPR: 36.36363636363637%
+TP: Function Address: 0x1055c  Score: 0.11247741839333535  Name: main
+FP: Function Address: 0x10478  Score: 0.13030377272368573
+FP: Function Address: 0x103f8  Score: 0.12382329334596075
+FP: Function Address: 0x10558  Score: 0.120637876390911
+FP: Function Address: 0x106a0  Score: 0.13582098566672163
+
+Threshold - FPR at 5% (TPR 0.0%): 0.13582098566672163
+Total: 12 | TP: 0 | FP: 1 | FN: 1 | TN: 10
+TPR: 0.0% | FPR: 9.090909090909092%
+FP: Function Address: 0x106a0  Score: 0.13582098566672163
+FN: Function Address: 0x1055c  Score: 0.11247741839333535  Name: main
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# 
+
+
+------
+1june2026
+
+ation/autoencoder# mv dr_elf_26may2026.h5 dr_elf_26may2026_no_structural_1june26.h5
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# nv normalize_elf_benign_26may2026.npy normalize_elf_benign_26may2026_no_structural_1june26.npy
+Traceback (most recent call last):
+  File "/usr/lib/command-not-found", line 27, in <module>
+    from CommandNotFound.util import crash_guard
+ModuleNotFoundError: No module named 'CommandNotFound'
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# mv normalize_elf_benign_26may2026.npy normalize_elf_benign_26may2026_no_structural_1june26.npy
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# mv autoencoder_stdout_26may2026.txt autoencoder_stdout_26may2026.txt_no_structural_1june2026 
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# 
+
+
+
+python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_26may2026_no_structural_1june26.h5" --normalize "normalize_elf_benign_26may2026_no_structural_1june26.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse"
+
+
+python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_roc"
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_roc"
+/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy
+Number of RoIs (basic blocks): 20000
+ROC Curve. AUC: 0.6363636363636364
+FPR TRP Threshold
+0.0 0.0 inf
+0.09090909090909091 0.0 0.1354298958630712
+0.36363636363636365 0.0 0.1171856483195271
+0.36363636363636365 1.0 0.11146967913171914
+1.0 1.0 0.018526225630173983
+
+Threshold - TPR at 80% (FPR 36.36363636363637%): 0.11146967913171914
+Total: 12 | TP: 1 | FP: 4 | FN: 0 | TN: 7
+TPR: 100.0% | FPR: 36.36363636363637%
+TP: Function Address: 0x1055c  Score: 0.11146967913171914  Name: main
+FP: Function Address: 0x10478  Score: 0.12824611034506506
+FP: Function Address: 0x103f8  Score: 0.12243934729814088
+FP: Function Address: 0x10558  Score: 0.1171856483195271
+FP: Function Address: 0x106a0  Score: 0.1354298958630712
+
+Threshold - FPR at 5% (TPR 0.0%): 0.1354298958630712
+Total: 12 | TP: 0 | FP: 1 | FN: 1 | TN: 10
+TPR: 0.0% | FPR: 9.090909090909092%
+FP: Function Address: 0x106a0  Score: 0.1354298958630712
+FN: Function Address: 0x1055c  Score: 0.11146967913171914  Name: main
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# 
+
+
+TPR: 0.0% | FPR: 9.090909090909092%
+FP: Function Address: 0x106a0  Score: 0.1354298958630712
+FN: Function Address: 0x1055c  Score: 0.11146967913171914  Name: main
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# 
+
+----
+for 2nd raw_2_ablation model 
+no zeros the inst
+
+python3 ../../raw_2_ablation.py --input-dir /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw/ --output-dir /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw_ab1 --mode no_instruction --verbose 
+
+
+[600/604] Processed: da22d07eaa175f99617d6245a552d079_raw.txt
+[601/604] Processed: arpping_raw.txt
+[602/604] Processed: 14e05005d6ba3d757f9a354e7a4cda68_raw.txt
+[603/604] Processed: bb12a4960707550e2da87ac3f71c7fb2_raw.txt
+[604/604] Processed: 41a3c83849a726a6dda58e5cb8d4f821_raw.txt
+
+[✓] DONE! Modified 604 files
+[✓] Output: /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw_ab1
+root@firmfuzz-vm:/home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw# python3 ../../raw_2_ablation.py --input-dir /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw/ --output-dir /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw_ab1 --mode no_instruction --verbose 
+
+----
+for 2nd raw_2_ablation model 
+no zeros the inst
+
+python3 ../../raw_2_ablation.py --input-dir /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw/ --output-dir /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw_ab1 --mode no_instruction --verbose 
+
+
+[600/604] Processed: da22d07eaa175f99617d6245a552d079_raw.txt
+[601/604] Processed: arpping_raw.txt
+[602/604] Processed: 14e05005d6ba3d757f9a354e7a4cda68_raw.txt
+[603/604] Processed: bb12a4960707550e2da87ac3f71c7fb2_raw.txt
+[604/604] Processed: 41a3c83849a726a6dda58e5cb8d4f821_raw.txt
+
+[✓] DONE! Modified 604 files
+[✓] Output: /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw_ab1
+root@firmfuzz-vm:/home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw# python3 ../../raw_2_ablation.py --input-dir /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw/ --output-dir /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw_ab1 --mode no_instruction --verbose 
+
+also removed the Satement along instruction using this 
+[601/604] Processed: arpping_raw.txt
+[602/604] Processed: 14e05005d6ba3d757f9a354e7a4cda68_raw.txt
+[603/604] Processed: bb12a4960707550e2da87ac3f71c7fb2_raw.txt
+[604/604] Processed: 41a3c83849a726a6dda58e5cb8d4f821_raw.txt
+
+[✓] DONE! Modified 604 files
+[✓] Output: /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw_ab1/elf_benign_1_raw_ab2/
+root@firmfuzz-vm:/home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw_ab1# python3 ../../raw_2_ablation_statement.py --input-dir /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw_ab1/ --output-dir /home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw_ab1/elf_benign_1_raw_ab2/ --mode no_statement --verbose 
+
+
+ cbacc2c71616f581366869d5b9fe2840_raw.npy  shape=(8528, 20)
+   Address range: 0x80ab – 0x207e87
+   ✅ Shape (N,20)
+   ✅ Feat cols finite
+   ✅ Feat cols in [0,1]
+   ✅ No NaN
+   ✅ Addresses look real
+
+✅ 1935c7513157b03da70eddaf1886e09a_raw.npy  shape=(3900, 20)
+   Address range: 0x100c7 – 0x20104c
+   ✅ Shape (N,20)
+   ✅ Feat cols finite
+   ✅ Feat cols in [0,1]
+   ✅ No NaN
+   ✅ Addresses look real
+
+🎉 ALL OK
+root@firmfuzz-vm:/home/firmfuzz/Documents/ablation_24may26/elf_benign_1_raw_ab1# python3 convert_raw_to_npy_31may2026.py 
+
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_roc" > bofishy_1june2026_ablation_1_no_structual
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# 
+
+
+
+
+
+
