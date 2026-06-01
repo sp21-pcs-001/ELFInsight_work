@@ -252,6 +252,20 @@ root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# pyt
 root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# 
 
 
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_roc" > bofishy_1june2026_ablation_1_no_structual
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# 
+
+
+----------
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# python3 normalize.py --train train_1june2026.txt --test test_1june2026.txt  --output normalize_elf_benign_1june2026_no_inst.npy
+Normalizing samples: 604 / 604
+python3 autoencoder.py --train train_1june2026.txt --test test_1june2026.txt  --normalize normalize_elf_benign_1june2026_no_inst.npy --model dr_elf_1june2026_no_inst.h5 > autoencoder_stdout_1june2026_no_inst.txt 2> autoencoder_stderr_1june2026_no_inst.txt
+
+
+
+r# python3 normalize.py --train train_1june2026.txt --test test_1june2026.txt  --output normalize_elf_benign_1june2026_no_inst.npy
+Normalizing samples: 604 / 604
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# python3 autoencoder.py --train train_1june2026.txt --test test_1june2026.txt  --normalize normalize_elf_benign_1june2026_no_inst.npy --model dr_elf_1june2026_no_inst.h5 > autoencoder_stdout_1june2026_no_inst.txt 2> autoencoder_stderr_1june2026_no_inst.txt
 
 
 
