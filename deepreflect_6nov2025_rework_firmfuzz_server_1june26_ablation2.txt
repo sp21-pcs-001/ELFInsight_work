@@ -982,10 +982,6 @@ root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder
 To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 2026-06-01 21:20:52.118752: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
 2026-06-01 21:20:53.741768: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
-2026-06-01 21:20:54.257284: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
-2026-06-01 21:20:54.434996: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
-2026-06-01 21:20:54.575198: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
-2026-06-01 21:20:56.658116: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
 Took 4.405417442321777 seconds to load model.
 1/1 ━━━━━━━━━━━━━━━━━━━━ 6s 6s/step
 
@@ -1084,4 +1080,108 @@ python3 autoencoder.py --train train_1june2026.txt --test test_1june2026.txt  --
 r# python3 normalize.py --train train_1june2026.txt --test test_1june2026.txt  --output normalize_elf_benign_1june2026_no_inst.npy
 Normalizing samples: 604 / 604
 root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# python3 autoencoder.py --train train_1june2026.txt --test test_1june2026.txt  --normalize normalize_elf_benign_1june2026_no_inst.npy --model dr_elf_1june2026_no_inst.h5 > autoencoder_stdout_1june2026_no_inst.txt 2> autoencoder_stderr_1june2026_no_inst.txt
+
+
+2june2026
+sample check helped me to fix ethe addr issue
+Unique basic block addresses in feature file (first 10): [66552 66560 66596 66620 66632 66644 66668 66680 66720 66728]
+Number of basic block addresses that match function mapping: 20
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot# python3 /home/firmfuzz/Documents/test_feature_sample_file.py 
+Unique basic block addresses in feature file (first 10): [66552 66560 66596 66620 66632 66644 66668 66680 66720 66728]
+Number of basic block addresses that match function mapping: 20
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot# 
+
+-----------------------------------------------------------
+2june2026
+now getting to text the bofishy on the 2nd ablation model .
+/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy
+
+
+
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# pwd
+/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# python3 raw_2_ablation.py --input-dir . --output-dir output/ --mode no_instruction --verbose
+[+] Found 1 raw.txt files
+[+] Ablation mode: no_instruction
+[+] Output directory: output/
+
+[1/1] Processed: bofishy_output.elf_raw.txt
+
+[✓] DONE! Modified 1 files
+[✓] Output: output/
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# 
+
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# python3 raw_2_ablation_statement.py --input-dir . --output-dir output/ --mode no_statement --verbose
+[+] Found 1 raw.txt files
+[+] Ablation mode: no_statement
+[+] Output directory: output/
+
+[1/1] Processed: bofishy_output.elf_raw.txt
+
+[✓] DONE! Modified 1 files
+[✓] Output: output/
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# chmod -R 777 *
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# 
+
+
+✅ bofishy_output.elf_raw.npy  shape=(28, 20)
+   Address range: 0x103f8 – 0x100020
+   ✅ Shape (N,20)
+   ✅ Feat cols finite
+   ✅ Feat cols in [0,1]
+   ✅ No NaN
+   ✅ Addresses look real
+
+🎉 ALL OK
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# python3 convert_raw_to_npy_31may2026.py 
+
+---------------------------
+testing bofish with zero inst/statement features
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# python mse.py --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature_path.txt" --model "dr_elf_1june2026_no_inst.h5" --normalize "normalize_elf_benign_1june2026_no_inst.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse"
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_roc"
+
+model "dr_elf_1june2026_no_inst.h5" --normalize "normalize_elf_benign_1june2026_no_inst.npy" --output "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse"
+2026-06-02 21:23:20.852977: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2026-06-02 21:23:38.432551: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-06-02 21:24:48.354147: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+2026-06-02 21:25:46.989886: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+2026-06-02 21:25:48.662003: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+2026-06-02 21:25:49.148554: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+2026-06-02 21:25:49.355269: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+2026-06-02 21:26:29.427220: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 402653184 exceeds 10% of free system memory.
+Took 51.50439143180847 seconds to load model.
+1/1 ━━━━━━━━━━━━━━━━━━━━ 11s 11s/step
+
+On average took 18.208394050598145 seconds to retrieve & save outputs
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_roc"
+python: can't open file '/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder/roc.py': [Errno 2] No such file or directory
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder# cd ../grader/
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# python roc.py --mse "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy" --feature "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_feature.npy" --bndb-func "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_function.txt" --annotation "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/rbot_annotation.txt" --roc "/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_roc"
+/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot/output/rbot_mse/output/rbot_feature.npy
+Number of RoIs (basic blocks): 20000
+ROC Curve. AUC: 0.8181818181818181
+FPR TRP Threshold
+0.0 0.0 inf
+0.09090909090909091 0.0 0.05748514868052459
+0.18181818181818182 0.0 0.05654071971366048
+0.18181818181818182 1.0 0.03147899179224365
+1.0 1.0 0.0007050923324650293
+
+Threshold - TPR at 80% (FPR 18.181818181818183%): 0.03147899179224365
+Total: 12 | TP: 1 | FP: 2 | FN: 0 | TN: 9
+TPR: 100.0% | FPR: 18.181818181818183%
+TP: Function Address: 0x1055c  Score: 0.03147899179224365  Name: main
+FP: Function Address: 0x103f8  Score: 0.05748514868052459
+FP: Function Address: 0x10424  Score: 0.05654071971366048
+
+Threshold - FPR at 5% (TPR 0.0%): 0.05748514868052459
+Total: 12 | TP: 0 | FP: 1 | FN: 1 | TN: 10
+TPR: 0.0% | FPR: 9.090909090909092%
+FP: Function Address: 0x103f8  Score: 0.05748514868052459
+FN: Function Address: 0x1055c  Score: 0.03147899179224365  Name: main
+
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader# 
 

@@ -270,3 +270,58 @@ root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/autoencoder
 
 
 
+2june2026
+sample check helped me to fix ethe addr issue
+Unique basic block addresses in feature file (first 10): [66552 66560 66596 66620 66632 66644 66668 66680 66720 66728]
+Number of basic block addresses that match function mapping: 20
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot# python3 /home/firmfuzz/Documents/test_feature_sample_file.py 
+Unique basic block addresses in feature file (first 10): [66552 66560 66596 66620 66632 66644 66668 66680 66720 66728]
+Number of basic block addresses that match function mapping: 20
+root@firmfuzz-vm:/home/firmfuzz/Desktop/deepreflect_elf_vex_ablation/grader/malware/rbot# 
+
+
+-----------------------------------------------------------
+2june2026
+now getting to text the bofishy on the 2nd ablation model .
+/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy
+
+
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# pwd
+/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# python3 raw_2_ablation.py --input-dir . --output-dir output/ --mode no_instruction --verbose
+[+] Found 1 raw.txt files
+[+] Ablation mode: no_instruction
+[+] Output directory: output/
+
+[1/1] Processed: bofishy_output.elf_raw.txt
+
+[✓] DONE! Modified 1 files
+[✓] Output: output/
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# 
+
+
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# python3 raw_2_ablation_statement.py --input-dir . --output-dir output/ --mode no_statement --verbose
+[+] Found 1 raw.txt files
+[+] Ablation mode: no_statement
+[+] Output directory: output/
+
+[1/1] Processed: bofishy_output.elf_raw.txt
+
+[✓] DONE! Modified 1 files
+[✓] Output: output/
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# chmod -R 777 *
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# 
+
+
+✅ bofishy_output.elf_raw.npy  shape=(28, 20)
+   Address range: 0x103f8 – 0x100020
+   ✅ Shape (N,20)
+   ✅ Feat cols finite
+   ✅ Feat cols in [0,1]
+   ✅ No NaN
+   ✅ Addresses look real
+
+🎉 ALL OK
+root@firmfuzz-vm:/home/firmfuzz/Documents/28may2026/15nov2025_improvded_extraction_malware/2june2026_bofishy_no_inst/ablation_bofishy# python3 convert_raw_to_npy_31may2026.py 
+
+
