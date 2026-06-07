@@ -3,6 +3,7 @@ ELFInsight is based on the DeepReflect project. We extended the work for IoT pla
 Flow of the implementation. 
 -----------------------------
 1-a. Complete Training and validation of the DR work using provided material by the Author. We successfully produced the results and also performed more test on our new samples.
+
 1-b. Implementation of the DR work using our own Dataset (collection of benign windows PE files and) featrue extractions script using IDA Pro (IDAPython scripts and networkx). Because free "Binary Ninja" version does not support python scripts. We developed our own scripts to perform raw features extraction, conversion into NPY format and finally extraction of the basic blocks/functions. We used our developed IDAPython scripts for Windows (PE for x86) and Linux (ELF for x86, ARM and MIPS) binaries.     
 
 
