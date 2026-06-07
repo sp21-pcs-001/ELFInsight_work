@@ -1,3 +1,4 @@
+ELFInsight is based on the DeepReflect project. We extended the work for IoT platforms such as ARM and MIPS binaries and further we implemented it on the Intermeidated Representation (IR) using (Angr-VEX) tool for the both architectures.
 
 All information related to Cross architecture work for IoT's ELF binaries
 Steps
