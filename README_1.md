@@ -4,8 +4,11 @@ Flow of the implementation.
 -----------------------------
 1-a. Complete Training and validation of the DR work using provided material by the Author. We successfully produced the results and also performed more test on our new samples.
 
-1-b. Implementation of the DR work using our own Dataset (collection of benign windows PE files and) featrue extractions script using IDA Pro (IDAPython scripts and networkx). Because free "Binary Ninja" version does not support python scripts. We developed our own scripts to perform raw features extraction, conversion into NPY format and finally extraction of the basic blocks/functions. We used our developed IDAPython scripts for Windows (PE for x86) and Linux (ELF for x86, ARM and MIPS) binaries.     
+1-b. Implementation of the DR work using our own Dataset (collection of benign windows PE files and) featrue extractions script using IDA Pro (IDAPython scripts and networkx). Because free "Binary Ninja" version does not support python scripts. We developed our own scripts to perform raw features extraction, conversion into NPY format and finally extraction of the basic blocks/functions. We used our developed IDAPython scripts for Windows (PE for x86) and Linux (ELF for x86, ARM and MIPS) binaries. Windows based implementation used for malicious code localization in Ransomwares and Linux based work used for ELFInsight research. 
 
+1-c. We again implemented the same feature extraction process using Angr and PyVex tools for the VEX-IR based  
+
+Last updated: 7June2025
 
 All information related to Cross architecture work for IoT's ELF binaries
 Steps
